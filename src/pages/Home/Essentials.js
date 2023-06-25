@@ -1,0 +1,35 @@
+import { Link } from "react-router-dom"
+
+export const Essentials = () => {
+  return (
+    <div className='w-full text-center sm:mb-24 mb-8'>
+        <h1 className='float-left sm:mb-6 mb-2 sm:text-2xl text-md'>The Essentials</h1>  
+        <div className='w-full flex justify-between items-center max-sm:items-center max-sm:flex-col h-5/6'>
+          <div className='max-sm:p-1' style={{height:"30rem"}}>
+              <div className='h-full object-center flex items-end' >
+                <Link to='/men' className="h-full">
+                  <img src="/assets/pictures/posters/men.webp" className="h-full w-auto object-cover sm:pr-3" alt="" />
+                </Link>
+                <button className='absolute px-5 py-1 m-5 h-8 rounded-2xl bg-black bg-opacity-60 hover:bg-opacity-80 text-sm text-white flex items-center'>Men's</button>
+              </div>
+          </div>
+          <div className='max-sm:p-1' style={{height:"30rem"}}>
+              <div className='h-full object-center flex items-end ' >
+                <Link to='/women' className="h-full">
+                  <img src="/assets/pictures/posters/women.webp" className="h-full w-auto object-cover sm:px-2" alt="" />
+                </Link>
+                <button className='absolute px-5 py-1 sm:ml-8 ml-5 mb-5 h-8 rounded-2xl bg-black bg-opacity-60 hover:bg-opacity-80 text-sm text-white flex items-center'>Women's</button>
+              </div>
+          </div>
+          <div className='max-sm:p-1' style={{height:"30rem"}}>
+              <div className='object-center flex items-end h-full' >
+                <Link to="/kids" className="h-full">
+                  <img src="/assets/pictures/posters/kid.webp" className="h-full w-auto object-cover sm:pl-3" alt="" />
+                </Link>
+                <button className='absolute px-5 py-1 sm:ml-8 ml-5 mb-5 h-8 rounded-2xl bg-black bg-opacity-60 hover:bg-opacity-80 text-sm text-white flex items-center'>Kid's</button>
+              </div>
+          </div>
+        </div>
+    </div>
+  ) 
+}
