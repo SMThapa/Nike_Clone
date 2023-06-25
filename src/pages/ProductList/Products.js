@@ -23,7 +23,7 @@ export const Products = ({category}) => {
       initialProductList(data)
     }
     fetchData()
-  },[initialProductList, searchTerm])
+  },[searchTerm])
 
   const bb = category === "all" ? productList : productList.filter( filt => filt.gender === category );
   
