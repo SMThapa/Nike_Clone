@@ -11,6 +11,7 @@ export const Products = ({category}) => {
 
   const {productList, initialProductList} = useFilter()
 
+
   //this returns the raw searched parameters
   const search = useLocation().search
   //this returns the filtered searched paremeter, in this care "q"

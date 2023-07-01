@@ -40,7 +40,7 @@ img{
 .centerContainer{
     display: flex;
     width: 100%;
-    margin-top: 13vh;
+    margin-top: 16vh;
     min-height: 80vh;
     justify-content: center;
     align-items: center;
@@ -75,6 +75,19 @@ img{
     }
 }
 
+.vertical-images{
+    &::-webkit-scrollbar{
+        display: none;
+    }
+    // &::-webkit-scrollbar-track{
+    //     border-radius: 5px;
+    //     background: #f1f1f1;   
+    // }
+    // &::-webkit-scrollbar-thumb{
+    //     border-radius: 5px;
+    //     background-color: gray;
+    // }
+}
 
 @media screen and (max-width:640px){
     .social-media i{

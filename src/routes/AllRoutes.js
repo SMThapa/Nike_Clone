@@ -12,12 +12,12 @@ export const AllRoutes = () => {
         <Route path="/help" element={<Help/>}/>
         <Route path="/login" element={<LoginPage/>}/>
         <Route path="/register" element={<Register/>}/>
-        <Route path="/products/men" element={<ProductList category="men"/>}/>
-        <Route path="/products/women" element={<ProductList category="women"/>}/>
-        <Route path="/products/kids" element={<ProductList category="kid"/>}/>
+        <Route path="/products/men" element={<ProductList category="Men"/>}/>
+        <Route path="/products/women" element={<ProductList category="Women"/>}/>
+        <Route path="/products/kids" element={<ProductList category="Kid"/>}/>
         <Route path="/products/sales" element={<ProductList category="sales"/>}/>
         <Route path="/products/all" element={<ProductList category="all"/>}></Route>
-        <Route path="/:id" element={<ProductDetail/>}/>
+        <Route path="/product/:id" element={<ProductDetail/>}/>
     </Routes>
   )
 }

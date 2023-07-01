@@ -4,7 +4,7 @@ export const ProductList = ({category}) => {
 
   return (
     <div className="flex">
-      <Filter/>
+      <Filter category={category}/>
       <Products category={category}/>
     </div>
   )

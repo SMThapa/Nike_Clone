@@ -32,7 +32,7 @@ export const Header = () => {
 
   return (
     <div>     
-      <nav className={`bg-white w-full z-20 top-0 left-0 fixed`}>
+      <nav className={`bg-white sm:w-full w-screen z-20 top-0 left-0 fixed`}>
         <div className={`max-md:hidden ${isIt ? ' ':'hidden'} flex flex-wrap items-center justify-between py-1 px-5`} style={{backgroundColor:'#f5f3f4'}}>
           <NavLink to='/'>
             <img className="my-1 ml-3" src={logo2} alt="" style={{height:'20px', width:'20px'}}/>

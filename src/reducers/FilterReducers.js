@@ -1,4 +1,4 @@
-export const FilterReducers = (sate, action) => {
+export const FilterReducers = (state, action) => {
   const {type, payload} = action;
 
   switch(type){
@@ -10,12 +10,18 @@ export const FilterReducers = (sate, action) => {
         return
     
     case "GENDER":
-        return
+        return {...state, gender: payload.gender}
 
-    case "SALES":
-        return 
+    case "SALE":
+        return {...state, sale: payload.sale}
     
-
+    case "CLEAR":
+        return {
+            ...state,
+            price: null,
+            gender: null,
+            sale: false
+        }
     default:
         return 
   }

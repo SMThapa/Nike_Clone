@@ -1,11 +1,11 @@
-import {useState } from "react"
+import { useState } from "react"
 import { useFilter } from "../../context"
 
-export const Filter = () => {
+export const Filter = ({category}) => {
 
   const {state, dispatch} = useFilter();
 
-  const [open, setOpen] = useState(true)
+  const [open, setOpen] = useState(false)
   const handleClick = () => {
     setOpen(!open)
   }
@@ -30,30 +30,35 @@ export const Filter = () => {
               </div>
             </div>
           </div>
-          <div className="mt-14">            
+          <div className={`mt-14 ${category === 'all'? '':'hidden'}`} >            
             <h1 className="my-2">Gender</h1>
             <div className="price">
               <div className="ml-5">
-                <input type="radio" name="gender" id="men"/>
+                <input type="radio" onChange={()=>dispatch({type:"GENDER", payload:{gender:"Men"}})} checked = {state.gender === "Men"? true: false} name="gender" id="men"/>
                 <label htmlFor="men"> Men</label>
               </div>
               <div className="ml-5">
-                <input type="radio" name="gender" id="women"/>
+                <input type="radio" onChange={()=>dispatch({type:"GENDER", payload:{gender:"Women"}})} checked= {state.gender === "Women"? true: false} name="gender" id="women"/>
                 <label htmlFor="women"> Women</label>
               </div>
               <div className="ml-5">
-                <input type="radio" name="gender" id="kid"/>
+                <input type="radio" onChange={()=>dispatch({type:"GENDER", payload:{gender:"Kid"}})} checked= {state.gender === "Kid"? true: false} name="gender" id="kid"/>
                 <label htmlFor="kid"> Kids</label>
               </div>
             </div>
           </div>
           <div className="mt-14">
-            <input type="radio" id="sales" name="sales"/>
+            <h1 className="my-2">COLOR</h1>
+          </div>
+          <div className="mt-14">
+            <input onChange={()=>dispatch({type:"SALE", payload:{sale: !state.sale}})} checked= {state.sale || false} type="checkbox" id="sales" name="sales"/>
             <label htmlFor="sales"> On Sale</label>
           </div>
+          <button className="mt-14 bg-gray-500 text-white p-1 rounded" onClick={()=>dispatch({type:"CLEAR"})}>Clear Filter</button>
         </div>
       </div>
       <button onClick={handleClick} className="absolute top-20 -right-5 bg-gray-500 h-12 ">{open?<i className="bi bi-chevron-left text-white"></i>: <i className="bi bi-chevron-right text-white"></i>}</button>
+      {!open && <h1 className="absolute top-36 h-auto [writing-mode:vertical-rl]">Show Filter</h1>}
     </div>
 
   ) 

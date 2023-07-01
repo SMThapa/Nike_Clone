@@ -5,7 +5,7 @@ const initialState = {
     productList: [],
     price:null,
     gender: null,
-    sales:null
+    sale: false
 }
 
 const FilterContext = createContext(initialState);
@@ -23,12 +23,21 @@ export const FilterProvider = ({children}) =>{
         })
     } 
 
-    function inSale(productList){
-        return state.sale ? productList.filter(product => product.sale) : productList;
+    function inSale(products){
+        return state.sale ? products.filter(product => product.sale) : products;
     }
 
-    function findGender(productList){
-        return state.gender ? productList.filter(product => product.gender === state.gender) : productList;
+    function findGender(products){
+        if(state.gender === "Men"){
+            return products.filter(product => product.gender === "Men")
+        }
+        if(state.gender === "Women"){
+            return products.filter(product => product.gender === "Women")
+        }
+        if(state.gender === "Kid"){
+            return products.filter(product => product.gender === "Kid")
+        }  
+        return products
     }
 
     const filteredProducts = findGender(inSale(state.productList));
