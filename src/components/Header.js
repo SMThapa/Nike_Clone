@@ -33,7 +33,7 @@ export const Header = () => {
   return (
     <div>     
       <nav className={`bg-white sm:w-full w-screen z-20 top-0 left-0 fixed`}>
-        <div className={`max-md:hidden ${isIt ? ' ':'hidden'} flex flex-wrap items-center justify-between py-1 px-5`} style={{backgroundColor:'#f5f3f4'}}>
+        <div className={`max-md:hidden ${isIt ? ' ':'hidden'} flex flex-wrap items-center justify-between py-1 px-8`} style={{backgroundColor:'#f5f3f4'}}>
           <NavLink to='/'>
             <img className="my-1 ml-3" src={logo2} alt="" style={{height:'20px', width:'20px'}}/>
           </NavLink>
@@ -43,7 +43,7 @@ export const Header = () => {
             <NavLink to='/login' className='text-xs hover:text-gray-500 px-3'>Login in</NavLink>
           </div>
         </div>
-        <div className={`items-center flex flex-wrap justify-between mx-auto md:grid md:grid-cols-3 py-2 px-4 ${isIt ? ' ':'shadow-lg'} z-20 bg-white top-0 w-full`}>
+        <div className={`items-center flex flex-wrap justify-between mx-auto md:grid md:grid-cols-3 py-2 px-8 ${isIt ? ' ':'shadow-lg'} z-20 bg-white top-0 w-full`}>
           <div className="flex items-center">
             <NavLink to='/'>
               <img src={logo} onClick={closeMenu} alt="" className="max-sm:h-8 max-sm:w-10 ml-3"/>
@@ -57,7 +57,7 @@ export const Header = () => {
                 <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                   <i className="bi bi-search sm:text-base max-sm:text-sm"></i>
                 </div>
-                <input ref={searchRef} type="search" id="default-search" className="max-lg:w-8 max-lg:h-9 max-lg:cursor-pointer block w-48 p-2 pl-10 text-base max-lg:bg-white text-gray-900 bg-gray-100 focus:w-full 2xl:focus:w-96 focus:outline-none focus:bg-gray-300 rounded-full" placeholder="Search" autoComplete="off" required/>
+                <input ref={searchRef} type="search" id="default-search" className="max-lg:w-8 max-lg:h-9 max-lg:cursor-pointer block w-48 p-2 pl-10 text-base max-lg:bg-white text-gray-900 bg-gray-100 focus:w-full 2xl:focus:w-96 focus:outline-none focus:bg-gray-200 rounded-full" placeholder="Search" autoComplete="off" required/>
               </div>
             </form> 
 

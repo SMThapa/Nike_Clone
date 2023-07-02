@@ -1,8 +1,5 @@
-export const WishList = () => {
-
+export const WishList = () => { 
   return (
-    <div className="theContainer">
-
-    </div>
+    <div className="theContainer">wishlist</div>
   )
 }

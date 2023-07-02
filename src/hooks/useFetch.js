@@ -4,7 +4,6 @@ export const useFetch = ({id}) => {
 
     const [fetchData, setFetchData] = useState([]);
     const [images, setImages] = useState([])
-    const [gender, setGender] = useState()
   
     useEffect(()=>{
       async function fetchProducts(){
@@ -14,13 +13,10 @@ export const useFetch = ({id}) => {
         
         const img = json.thumbnail
         setImages(img)
-
-        const gender = json.gender
-        setGender(gender)
       }
       fetchProducts()
     },[id])
 
     
-  return {fetchData, images, gender}
+  return {fetchData, images}
 }
