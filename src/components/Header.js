@@ -43,7 +43,7 @@ export const Header = () => {
             <NavLink to='/login' className='text-xs hover:text-gray-500 px-3'>Login in</NavLink>
           </div>
         </div>
-        <div className={`items-center flex flex-wrap justify-between mx-auto md:grid md:grid-cols-3 py-2 px-8 ${isIt ? ' ':'shadow-lg'} z-20 bg-white top-0 w-full`}>
+        <div className={`items-center flex flex-wrap justify-between mx-auto md:grid md:grid-cols-3 py-2 px-4 sm:px-8 ${isIt ? ' ':'shadow-lg'} z-20 bg-white top-0 w-full`}>
           <div className="flex items-center">
             <NavLink to='/'>
               <img src={logo} onClick={closeMenu} alt="" className="max-sm:h-8 max-sm:w-10 ml-3"/>

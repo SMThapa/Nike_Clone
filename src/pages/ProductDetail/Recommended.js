@@ -6,8 +6,8 @@ export const Recommended = () => {
     const {fetchData} = useFetch({id})
     const bb = fetchData.filter( filt => filt.trending === true)
   return (
-    <div className='w-full sm:mb-24 mb-8 flex flex-col sm:px-8'>
-        <h1 className='float-left sm:mb-6 mb-2 sm:text-2xl text-md'>You Might Also Like</h1>
+    <div className='w-full sm:mb-24 mb-8 flex flex-col sm:px-8 p-2'>
+        <h1 className='float-left sm:mb-6 mb-2 sm:text-2xl sm:text-md text-lg font-bold'>You Might Also Like</h1>
         <div className='horizontal-images h-auto flex overflow-x-scroll'>
           {
               bb.map(itm => (

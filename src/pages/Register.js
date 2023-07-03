@@ -1,27 +1,30 @@
-import { useNavigate } from "react-router-dom"
 import logo from '../util/NIKE-LOGO.png'
 
 export const Register = () => {
 
-  const navigate = useNavigate()
   async function handleSubmit(event){
-    event.preventDefault()
-
-    const password = event.target.password.value
-    const repeatPassword = event.target.repeat_password.value
+    event.preventDefault();
 
     const userDetails = {
-      userEmail: event.target.email.value,
-      password: event.target.password.value
+      password: event.target.repeat_password.value,
+      email: event.target.email.value
     }
-
-    // password === repeatPassword ? event.target.repeat_passowrd.setCustomValidity('') : event.target.repeat_passowrd.setCustomValidity('how hard it is to repeat the same passwrod.')
     
+    const response = await fetch("http://localhost:8000/register", {
+      method: "POST",
+      headers: {"content-Type": "application/json"},
+      body: JSON.stringify(userDetails)
+    })
+
+    const data = await response.json()
+
+    console.log(data)
+
+    console.log(userDetails)
+
     event.target.email.value = ' '
     event.target.password.value = null
     event.target.repeat_password.value = null
-
-    // console.log(userDetails, password, repeatPassword)
   }
 
   return (
