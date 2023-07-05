@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { ScrollToTop } from './others/ScrollToTop';
 import { FilterProvider } from './context/index';
+import { CartProvider } from './context/index';
 import './index.css';
 import './Style/master.css'
 import App from './App';
@@ -15,11 +16,13 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Router>
-      <FilterProvider>
-        <ScrollToTop />
-        <ToastContainer position={'bottom-right'} autoClose={2000}/>
-        <App/>
-      </FilterProvider>
+      <CartProvider>
+        <FilterProvider>
+          <ScrollToTop />
+          <ToastContainer position={'bottom-right'} autoClose={2000}/>
+          <App/>
+        </FilterProvider>
+      </CartProvider>
     </Router>
   </React.StrictMode>
 );

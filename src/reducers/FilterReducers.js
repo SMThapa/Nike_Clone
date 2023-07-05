@@ -4,7 +4,7 @@ export const FilterReducers = (state, action) => {
   switch(type){
 
     case "PRODUCT_LIST":
-        return { productList: payload.products }
+        return { ...state, productList: payload.products }
 
     case "PRICE":
         return

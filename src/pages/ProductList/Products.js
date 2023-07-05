@@ -24,6 +24,7 @@ export const Products = ({category}) => {
       initialProductList(data)
     }
     fetchData()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[searchTerm])
 
   const bb = category === "all" ? productList : productList.filter( filt => filt.gender === category );

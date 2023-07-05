@@ -95,6 +95,11 @@ img {
   height: 70vh;
 }
 
+@media screen and (max-width: 1110px) {
+  .productDetailImage {
+    height: 55vh;
+  }
+}
 @media screen and (max-width: 500px) {
   .productDetailImage {
     height: 40vh;

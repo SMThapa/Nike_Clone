@@ -1,4 +1,6 @@
 import { useRef, useState } from "react"
+import { useCart } from "../../context/CartContext"
+
 
 export const Details = ({fetchData}) => {
     const size= {
@@ -7,6 +9,11 @@ export const Details = ({fetchData}) => {
         Men : ["UK 6", "UK 6.5", "UK 7", "UK 7.5", "UK 8", "UK 8.5", "UK 9", "UK 9.5", "UK 10", "UK 10.5", "UK 11", "UK 11.5", "UK 12"]
     }
     
+    const {cartList, addToCart, removerFromCart} = useCart()
+    const handleClick = (product) => {
+      addToCart(product)
+    }
+
     const SIZE = useRef()
     const [theSize, setSize] = useState('')
     const [sizeSelected, setSelected] = useState(true)
@@ -43,7 +50,7 @@ export const Details = ({fetchData}) => {
       </div>
 
       <div className="sm:my-12 my-3 flex w-full justify-between">
-        <button onClick={()=>theSize?console.log(theSize):setSelected(false)}  className="w-1/2 mr-2 bg-black text-white p-3 rounded-full">Add to Bag</button>
+        <button onClick={()=>theSize?handleClick(fetchData):setSelected(false)}  className="w-1/2 mr-2 bg-black text-white p-3 rounded-full">Add to Bag</button>
         <button className="w-1/2 ml-2 p-3 border border-gray-400 rounded-full">Add to Favourite</button>
       </div>
 

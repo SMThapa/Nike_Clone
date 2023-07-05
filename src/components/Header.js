@@ -50,8 +50,7 @@ export const Header = () => {
   }
 
 
-
-  const email = sessionStorage.getItem('email').replace(/['"]+/g, '')
+  const email = token ? sessionStorage.getItem('email').replace(/['"]+/g, '') : ''
 
   return (
     <div>     
