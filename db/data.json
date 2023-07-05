@@ -127,8 +127,7 @@
         "https://res.cloudinary.com/dvirqrzq3/image/upload/v1686746162/SHOE_IMAGES/Men/DV0806-001_05.webp",
         "https://res.cloudinary.com/dvirqrzq3/image/upload/v1686746162/SHOE_IMAGES/Men/DV0806-001_06.webp",
         "https://res.cloudinary.com/dvirqrzq3/image/upload/v1686746162/SHOE_IMAGES/Men/DV0806-001_07.webp",
-        "https://res.cloudinary.com/dvirqrzq3/image/upload/v1686746162/SHOE_IMAGES/Men/DV0806-001_08.webp",
-        "https://res.cloudinary.com/dvirqrzq3/image/upload/v1686746162/SHOE_IMAGES/Men/DV0806-001_09.webp"
+        "https://res.cloudinary.com/dvirqrzq3/image/upload/v1686746162/SHOE_IMAGES/Men/DV0806-001_08.webp"
       ]
     },
     {
@@ -295,7 +294,6 @@
         "https://res.cloudinary.com/dvirqrzq3/image/upload/v1686746179/SHOE_IMAGES/Men/DR0453-004_05.webp",
         "https://res.cloudinary.com/dvirqrzq3/image/upload/v1686746179/SHOE_IMAGES/Men/DR0453-004_06.webp",
         "https://res.cloudinary.com/dvirqrzq3/image/upload/v1686746179/SHOE_IMAGES/Men/DR0453-004_07.jpg",
-        "https://res.cloudinary.com/dvirqrzq3/image/upload/v1686746179/SHOE_IMAGES/Men/DR0453-004_07.jpg",
         "https://res.cloudinary.com/dvirqrzq3/image/upload/v1686746179/SHOE_IMAGES/Men/DR0453-004_09.webp",
         "https://res.cloudinary.com/dvirqrzq3/image/upload/v1686746179/SHOE_IMAGES/Men/DR0453-004_10.webp",
         "https://res.cloudinary.com/dvirqrzq3/image/upload/v1686746179/SHOE_IMAGES/Men/DR0453-004_11.webp"
@@ -315,11 +313,10 @@
         "https://res.cloudinary.com/dvirqrzq3/image/upload/v1686746167/SHOE_IMAGES/Men/DM0029-102_01.webp",
         "https://res.cloudinary.com/dvirqrzq3/image/upload/v1686746167/SHOE_IMAGES/Men/DM0029-102_02.webp",
         "https://res.cloudinary.com/dvirqrzq3/image/upload/v1686746167/SHOE_IMAGES/Men/DM0029-102_03.webp",
+        "https://res.cloudinary.com/dvirqrzq3/image/upload/v1686746167/SHOE_IMAGES/Men/DM0029-102_04.jpg",
         "https://res.cloudinary.com/dvirqrzq3/image/upload/v1686746167/SHOE_IMAGES/Men/DM0029-102_05.webp",
-        "https://res.cloudinary.com/dvirqrzq3/image/upload/v1686746168/SHOE_IMAGES/Men/DM0029-102_08.jpg",
-        "https://res.cloudinary.com/dvirqrzq3/image/upload/v1686746167/SHOE_IMAGES/Men/DM0029-102_06.webp",
-        "https://res.cloudinary.com/dvirqrzq3/image/upload/v1686746167/SHOE_IMAGES/Men/DM0029-102_07.webp",
-        "https://res.cloudinary.com/dvirqrzq3/image/upload/v1686746168/SHOE_IMAGES/Men/DM0029-102_08.jpg"
+        "https://res.cloudinary.com/dvirqrzq3/image/upload/v1686746168/SHOE_IMAGES/Men/DM0029-102_06.webp",
+        "https://res.cloudinary.com/dvirqrzq3/image/upload/v1686746167/SHOE_IMAGES/Men/DM0029-102_07.jpg"
       ]
     },
     {
@@ -1210,6 +1207,16 @@
       "email": "sidothapa@gmail.com",
       "password": "$2a$10$ErYkdueMYe/mQ8CJqTfqv./qtBRXm6fLBG04SDdA2rWcfsoPe1AqW",
       "id": 1
+    },
+    {
+      "email": "asdf@gmail.com",
+      "password": "$2a$10$LvmbMYwJjEAKiaVSveC8FuHxpy/YHdWz6k4.ZbW9forZAhTPyVdCO",
+      "id": 2
+    },
+    {
+      "email": "siddharthapa@gmail.com",
+      "password": "$2a$10$mN8Nr5yp69p4nt3/DNGyjORF7pGdcbY0lO.PZC.y/I0dduCD63kjO",
+      "id": 3
     }
   ]
 }

@@ -7,6 +7,7 @@
     font-family: 'Nunito', sans-serif;
     font-weight: 500;
     letter-spacing: .5px;
+    user-select: none;
 }
 
 img{
@@ -110,7 +111,7 @@ img{
     height: 70vh
 }
 
-@media screen and (max-width:600px){
+@media screen and (max-width:500px){
     .productDetailImage{
         height: 40vh;
         padding: 15px;

@@ -1,6 +1,10 @@
 import logo from '../util/NIKE-LOGO.png'
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 export const Register = () => {
+
+  const navigate = useNavigate()
 
   async function handleSubmit(event){
     event.preventDefault();
@@ -18,7 +22,15 @@ export const Register = () => {
 
     const data = await response.json()
 
-    console.log(data)
+    const registerSession = () => {
+      sessionStorage.setItem('token', JSON.stringify(data.accessToken))
+      sessionStorage.setItem('nkid', JSON.stringify(data.user.id))
+      sessionStorage.setItem('email', JSON.stringify(data.user.email))
+      navigate('/')
+      toast.success("Your logged in now.")
+    }
+
+    data.accessToken ? registerSession() : toast.error(data);
 
     console.log(userDetails)
 

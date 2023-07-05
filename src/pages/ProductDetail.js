@@ -12,7 +12,7 @@ export const ProductDetail = () => {
 
   return (
     <div>
-      <div className="sm:mx-28 xl:mx-40 sm:mt-40 mt-12 sm:pb-40 sm:flex justify-between">
+      <div className="sm:mx-5 lg:mx-20 xl:mx-40 sm:mt-40 mt-12 sm:pb-40 sm:flex justify-between">
         <Images fetchData={fetchData} images={images} id={id}/>
         <Details fetchData={fetchData}/>
       </div>

@@ -1,14 +1,16 @@
-import { useRef, useState } from "react"
-import { NavLink, useNavigate } from "react-router-dom"
+import { useEffect, useRef, useState } from "react"
+import { NavLink, useLocation, useNavigate } from "react-router-dom"
 import logo from '../util/NIKE-LOGO.png'
 import logo2 from '../util/JORDAN-LOGO.png'
 
 export const Header = () => {
 
   const [isIt, setIt] = useState(true)
+  const [hide, setHide] = useState(true)
 
   window.addEventListener('scroll', ()=>{
     window.pageYOffset >= 20 ? setIt(false) : setIt(true)
+    setHide(true)
   })
   const [IsOpen, setOpen] = useState(false);
   const handleOpen = () => {
@@ -30,6 +32,27 @@ export const Header = () => {
     navigate(`/products/all?q=${searchRef.current.value}`)
   }
 
+  const logoutOption = () =>{
+    setHide(!hide)
+  }
+
+  const {pathname} = useLocation()
+  useEffect(()=>{
+    setHide(true)
+  },[pathname])
+
+  const token = sessionStorage.getItem("token");
+  const handleLogout = () => {
+    sessionStorage.removeItem('token')
+    sessionStorage.removeItem('nkid')
+    setHide(!hide)
+    navigate('/')
+  }
+
+
+
+  const email = sessionStorage.getItem('email').replace(/['"]+/g, '')
+
   return (
     <div>     
       <nav className={`bg-white sm:w-full w-screen z-20 top-0 left-0 fixed`}>
@@ -37,10 +60,27 @@ export const Header = () => {
           <NavLink to='/'>
             <img className="my-1 ml-3" src={logo2} alt="" style={{height:'20px', width:'20px'}}/>
           </NavLink>
-          <div className=''>
+          <div className={token? 'flex items-center' : ''}>
             <NavLink to='/help' className='text-xs border-gray-900 hover:text-gray-500 border-r px-3'>Help</NavLink>
-            <NavLink to='/register' className='text-xs border-gray-900 hover:text-gray-500 border-r px-3'>Join Us</NavLink>
-            <NavLink to='/login' className='text-xs hover:text-gray-500 px-3'>Login in</NavLink>
+            
+            {
+              token ? 
+                <div className="relative">
+                  <div onClick={logoutOption} className="flex items-center hover:text-gray-500 cursor-pointer">
+                    <i className="bi bi-person-fill pl-2 text-xs"></i>
+                    <p className='text-xs hover:text-gray-500 px-1' >{email}</p>
+                  </div>
+
+                  <div className={`absolute top-5 right-0 cursor-pointer z-30 ${ hide ? 'hidden': '' }`}>
+                    <p onClick={handleLogout} className="bg-gray-500 px-3 py-1 text-gray-200 rounded-xl">Logout</p>
+                  </div>
+                </div>:
+                <>
+                  <NavLink to='/register' className='text-xs border-gray-900 hover:text-gray-500 border-r px-3'>Join Us</NavLink>
+                  <NavLink to='/login' className='text-xs hover:text-gray-500 px-3'>Login in</NavLink>
+                </>
+            }
+
           </div>
         </div>
         <div className={`items-center flex flex-wrap justify-between mx-auto md:grid md:grid-cols-3 py-2 px-4 sm:px-8 ${isIt ? ' ':'shadow-lg'} z-20 bg-white top-0 w-full`}>
