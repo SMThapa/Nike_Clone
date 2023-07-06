@@ -1,9 +1,12 @@
 import { useEffect, useRef, useState } from "react"
 import { NavLink, useLocation, useNavigate } from "react-router-dom"
+import { useCart } from "../context/CartContext"
 import logo from '../util/NIKE-LOGO.png'
 import logo2 from '../util/JORDAN-LOGO.png'
 
 export const Header = () => {
+
+  const {cartList} = useCart()
 
   const [isIt, setIt] = useState(true)
   const [hide, setHide] = useState(true)
@@ -102,8 +105,8 @@ export const Header = () => {
 
               <NavLink to='/wishlist' className="bi bi-heart px-3 max-md:hidden max-lg:text-base"></NavLink>
               <div className="relative px-3">
-                <NavLink to='/cart' onClick={closeMenu} className="bi bi-bag max-lg:text-base"></NavLink>
-                <span className="absolute text-sm text-red-600 right-0">*</span>
+                <NavLink to='/cart' onClick={closeMenu} className="bi bi-bag max-lg:text-base relative"></NavLink>
+                <span className={`absolute text-sm text-red-600 right-0 top-0 ${cartList.length === 0 ? 'hidden':''}`}>{cartList.length}</span>
               </div>
               <button data-collapse-toggle="navbar-sticky" type="button" onClick={handleOpen} className="inline-flex items-center pl-3 text-sm text-gray-500 rounded-lg md:hidden focus:outline-none" aria-controls="navbar-sticky" aria-expanded="false">
                 <span className="sr-only">Open main menu</span>

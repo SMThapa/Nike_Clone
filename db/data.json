@@ -1205,18 +1205,8 @@
   "users": [
     {
       "email": "sidothapa@gmail.com",
-      "password": "$2a$10$ErYkdueMYe/mQ8CJqTfqv./qtBRXm6fLBG04SDdA2rWcfsoPe1AqW",
+      "password": "$2a$10$ENgXEVzTKijF5wM6r1wFIeZc93IQkiAqHRoH3lRV4tcBJZ/cJscy.",
       "id": 1
-    },
-    {
-      "email": "asdf@gmail.com",
-      "password": "$2a$10$LvmbMYwJjEAKiaVSveC8FuHxpy/YHdWz6k4.ZbW9forZAhTPyVdCO",
-      "id": 2
-    },
-    {
-      "email": "siddharthapa@gmail.com",
-      "password": "$2a$10$mN8Nr5yp69p4nt3/DNGyjORF7pGdcbY0lO.PZC.y/I0dduCD63kjO",
-      "id": 3
     }
   ]
 }

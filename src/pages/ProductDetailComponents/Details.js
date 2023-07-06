@@ -1,5 +1,7 @@
 import { useRef, useState } from "react"
 import { useCart } from "../../context/CartContext"
+import { useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 
 
 export const Details = ({fetchData}) => {
@@ -9,14 +11,25 @@ export const Details = ({fetchData}) => {
         Men : ["UK 6", "UK 6.5", "UK 7", "UK 7.5", "UK 8", "UK 8.5", "UK 9", "UK 9.5", "UK 10", "UK 10.5", "UK 11", "UK 11.5", "UK 12"]
     }
     
-    const {cartList, addToCart, removerFromCart} = useCart()
-    const handleClick = (product) => {
-      addToCart(product)
-    }
+    const navigate = useNavigate()
 
+    //controls the size checked or not.
     const SIZE = useRef()
     const [theSize, setSize] = useState('')
     const [sizeSelected, setSelected] = useState(true)
+
+    //handles the add_to_cart context component
+    const {cartList, addToCart} = useCart()
+    const handleClick = (product) => {
+      addToCart({...product, "size":`${theSize}`})
+    }
+
+    //check wether the item in present in cartList or not.
+    const [checkCart, setCheck] = useState(false);
+    useEffect(()=>{
+      const aa = cartList.find(item => item.id === fetchData.id)
+      aa ? setCheck(true): setCheck(false)
+    },[cartList, fetchData])
 
   return (
     <div className="sm:pl sm:w-1/2 max-sm:p-3">
@@ -50,7 +63,8 @@ export const Details = ({fetchData}) => {
       </div>
 
       <div className="sm:my-12 my-3 flex w-full justify-between">
-        <button onClick={()=>theSize?handleClick(fetchData):setSelected(false)}  className="w-1/2 mr-2 bg-black text-white p-3 rounded-full">Add to Bag</button>
+        {!checkCart && <button onClick={()=>theSize?handleClick(fetchData):setSelected(false)}  className="w-1/2 mr-2 bg-black text-white p-3 rounded-full">Add to Bag</button>}
+        {checkCart && <button onClick={()=>navigate('/cart')}  className="w-1/2 mr-2 bg-black text-white p-3 rounded-full">Go to Cart</button>}
         <button className="w-1/2 ml-2 p-3 border border-gray-400 rounded-full">Add to Favourite</button>
       </div>
 
@@ -74,7 +88,7 @@ export const Details = ({fetchData}) => {
           <div className="sm:border-t border-b border-gray-300">
             <h1 className="sm:text-2xl text-xl font-black sm:py-5 py-1" >Delivery & Returns</h1>
             <div className="ml-3">
-              <p className="">&bull; Free delivery for purchases above ₹19,000.00</p>
+              <p className="">&bull; Free delivery for purchases above ₹14,000.00</p>
               <p className="sm:my-4 my-2">&bull; Standard delivery 4-9 Business Days</p>
               <p className="sm:my-4 my-2">&bull; Orders are processed and delivered Monday-Friday (excluding public holidays)</p>
               <p className="sm:my-4 my-2">&bull; Nike Members enjoy free returns.</p>

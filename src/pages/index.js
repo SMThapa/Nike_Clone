@@ -6,3 +6,4 @@ export {LoginPage} from '../pages/LoginPage';
 export {Register} from '../pages/Register';
 export {Help} from '../pages/Help';
 export {ProductDetail} from '../pages/ProductDetail';
+export { CheckOuts } from './CheckOuts';

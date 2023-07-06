@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom"
 import { useFetch } from "../hooks/useFetch"
 import { useTitle } from "../hooks/useTitle"
-import { Images, Details, Recommended } from "./ProductDetail/index"
+import { Images, Details, Recommended } from "./ProductDetailComponents/index"
 
 export const ProductDetail = () => {
 

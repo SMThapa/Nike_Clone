@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import {VideoSection, TheLatest, Trending, Featured, DontMiss, Essentials} from './Home/index'
+import {VideoSection, TheLatest, Trending, Featured, DontMiss, Essentials} from './HomeComponents/index'
 import { useTitle } from '../hooks/useTitle';
 
 export const Home = () => {
