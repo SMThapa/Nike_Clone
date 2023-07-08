@@ -30,7 +30,7 @@ export const LoginPage = () => {
       sessionStorage.setItem('nkid', JSON.stringify(data.user.id))
       sessionStorage.setItem('email', JSON.stringify(data.user.email))
       navigate('/')
-      toast.success("Your logged in now.")
+      toast.success("Your now logged in.")
     }
 
     data.accessToken ? loginSession() : toast.error(data);

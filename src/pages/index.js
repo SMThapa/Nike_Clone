@@ -7,3 +7,4 @@ export {Register} from '../pages/Register';
 export {Help} from '../pages/Help';
 export {ProductDetail} from '../pages/ProductDetail';
 export { CheckOuts } from './CheckOuts';
+export {DashBoard} from './DashBoard';

@@ -32,7 +32,10 @@ export const Products = ({category}) => {
   return (
     <div className='centerContainer flex'>
       <div className=''>
-        <h1 className='sm:ml-20 ml-5 sm:mt-5 max-sm:mb-3 sm:text-2xl'>Items({bb.length})</h1>
+        
+        <h1 className={`${category === 'all'? '': 'hidden'} sm:ml-20 ml-5 sm:mt-5 max-sm:mb-3 sm:text-2xl`}>Your Search for "{searchTerm}"</h1>
+        {bb.length !==0 && <h1 className='sm:ml-20 ml-5 sm:mt-5 max-sm:mb-3 sm:text-2xl'>Items({bb.length})</h1>}
+        {bb.length ===0 && <h1 className='sm:ml-20 ml-5 sm:mt-5 max-sm:mb-3 sm:text-2xl'>No item to be shown.</h1>}
         <div className='flex flex-wrap justify-center'>
           {
               bb.map(itm => (

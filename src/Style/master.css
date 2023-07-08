@@ -68,6 +68,15 @@ img {
   color: #1d4ed8;
 }
 
+.essentialDivHeight {
+  height: 30rem;
+}
+
+@media screen and (max-width: 640px) {
+  .essentialDivHeight {
+    height: 21rem;
+  }
+}
 .horizontal-images::-webkit-scrollbar {
   height: 10px;
 }

@@ -54,7 +54,7 @@ export const Details = ({fetchData}) => {
               // <button className="sm:w-24 sm:p-2 sm:m-1 border" key={index}>{size}</button>
               <p key={index} className="inline-flex">
                 <input className="hidden overflow-hidden peer" ref={SIZE} type="radio" name="inputRadio" id={`size${index}`} required="required"/>
-                <label onClick={(e)=>{setSize(e.target.innerText)}} className="w-20 sm:w-24 sm:p-2 p-1 m-1 border cursor-pointer rounded-sm text-center peer-checked:bg-gray-300" htmlFor={`size${index}`}>{size}</label>
+                <label onClick={(e)=>{setSize(e.target.innerText)}} className="w-20 sm:w-24 sm:p-2 p-1 m-1 border cursor-pointer rounded text-center peer-checked:bg-gray-300" htmlFor={`size${index}`}>{size}</label>
               </p>
             ))
           }

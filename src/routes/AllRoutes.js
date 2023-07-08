@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
-import {Home, Cart, LoginPage, Register, ProductList, WishList, Help, ProductDetail, CheckOuts} from '../pages/index';
+import {Home, Cart, LoginPage, Register, ProductList, WishList, Help, ProductDetail, CheckOuts, DashBoard} from '../pages/index';
+import { AddressAndContact } from "../pages/CheckOutComponents";
 
 import React from 'react'
 
@@ -19,6 +20,8 @@ export const AllRoutes = () => {
         <Route path="/products/all" element={<ProductList category="all"/>}></Route>
         <Route path="/product/:id" element={<ProductDetail/>}/>
         <Route path="/checkout" element={<CheckOuts/>}/>
+        <Route path="/dashboard" element={<DashBoard/>}/>
+        <Route path="/userInfo" element={<AddressAndContact/>}/>
     </Routes>
   )
 }

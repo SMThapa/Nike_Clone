@@ -25,7 +25,7 @@ export const Summery = () => {
             </div>
         </div>
         <div className="sm:py-8 py-6 sm:flex justify-center">
-            <button onClick={()=>{navigate('/checkout')}} className="bg-black text-white text-lg sm:w-4/6 w-1/2 sm:p-3 p-2 rounded-full">Checkout</button>
+            <button onClick={()=>{navigate('/userInfo')}} className="bg-black text-white text-lg sm:w-4/6 w-1/2 sm:p-3 p-2 rounded-full">Checkout</button>
         </div>
     </div>
   )

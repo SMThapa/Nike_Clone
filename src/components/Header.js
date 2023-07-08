@@ -7,13 +7,14 @@ import logo2 from '../util/JORDAN-LOGO.png'
 export const Header = () => {
 
   const {cartList} = useCart()
-
   const [isIt, setIt] = useState(true)
+
+  //this allows to toggles user menu
   const [hide, setHide] = useState(true)
 
   window.addEventListener('scroll', ()=>{
     window.pageYOffset >= 20 ? setIt(false) : setIt(true)
-    setHide(true)
+    window.pageYOffset >= 20 ? setHide(true) : setHide(hide)
   })
   const [IsOpen, setOpen] = useState(false);
   const handleOpen = () => {
@@ -28,31 +29,32 @@ export const Header = () => {
     setOpen(false);
   }
 
+  //this paragraph handles search input
   const navigate = useNavigate()
+  const {pathname} = useLocation()
   const searchRef = useRef()
   const handleSearch = (event) =>{
     event.preventDefault()
     navigate(`/products/all?q=${searchRef.current.value}`)
+    searchRef.current.value = null
   }
-
-  const logoutOption = () =>{
-    setHide(!hide)
-  }
-
-  const {pathname} = useLocation()
   useEffect(()=>{
-    setHide(true)
+    searchRef.current.value = null
   },[pathname])
 
-  const token = sessionStorage.getItem("token");
-  const handleLogout = () => {
-    sessionStorage.removeItem('token')
-    sessionStorage.removeItem('nkid')
+  //toggels user menu
+  const hanldeUserMenu = () => {
     setHide(!hide)
-    navigate('/')
   }
 
+  const handleLogout = () => {
+    sessionStorage.removeItem('email')
+    sessionStorage.removeItem('token')
+    sessionStorage.removeItem('nkid')
+    navigate('/')
+}
 
+  const token = sessionStorage.getItem("token");  
   const email = token ? sessionStorage.getItem('email').replace(/['"]+/g, '') : ''
 
   return (
@@ -67,14 +69,14 @@ export const Header = () => {
             
             {
               token ? 
-                <div className="relative">
-                  <div onClick={logoutOption} className="flex items-center hover:text-gray-500 cursor-pointer">
+                <div className="relative" onClick={hanldeUserMenu}>
+                  <div className="flex items-center hover:text-gray-500 cursor-pointer">
                     <i className="bi bi-person-fill pl-2 text-xs"></i>
                     <p className='text-xs hover:text-gray-500 px-1' >{email}</p>
-                  </div>
-
-                  <div className={`absolute top-5 right-0 cursor-pointer z-30 ${ hide ? 'hidden': '' }`}>
-                    <p onClick={handleLogout} className="bg-gray-500 px-3 py-1 text-gray-200 rounded-xl">Logout</p>
+                  </div> 
+                  <div className={`${hide? 'hidden': ''} absolute mt-1 right-0 bg-white w-2/3 z-30`}>
+                    <p onClick={()=>navigate('/dashboard')} className="text-sm py-1 px-3 cursor-pointer hover:underline">My Orders</p>
+                    <p onClick={handleLogout} className="text-sm py-1 px-3 cursor-pointer hover:underline">Logout</p>
                   </div>
                 </div>:
                 <>
