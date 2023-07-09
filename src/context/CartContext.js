@@ -5,7 +5,8 @@ import { CartReducers } from "../reducers/CartReducers";
 
 const cartInitialState = {
     cartList:[],
-    total: 0
+    total: 0,
+    userInfo:[]
 }
 
 const CartContext = createContext(cartInitialState);
@@ -49,14 +50,25 @@ export const CartProvider = ({children}) => {
         })
     }
 
+    function createUserInfo(info){
+        dispatch({
+            type:"CREATE_USER_INFO",
+            payload:{
+                userInfo: info
+            }
+        })
+    }
+
 
 
     const value = {
         cartList: state.cartList,
         total: state.total,
+        userInfo: state.userInfo,
         addToCart,
         removeFromCart,
-        clearCart
+        clearCart,
+        createUserInfo
     }
     return (
         <CartContext.Provider value={value}>

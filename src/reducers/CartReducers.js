@@ -12,6 +12,8 @@ export const CartReducers = (state, action) => {
         case "CLEAR_CART":
             return {...state, cartlist: payload.cartList, total: payload.total }
 
+        case "CREATE_USER_INFO":
+            return {...state, userInfo: payload.userInfo }
         
         default:
             throw new Error("no case found.")

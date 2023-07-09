@@ -11,16 +11,16 @@ export const ItemCard = ({item}) => {
         <img className="sm:w-48 w-56 h-auto object-cover aspect-square" src={item.thumbnail[0]} alt="" />
       </Link>
       <div className="w-full sm:pl-5 pl-4"> 
-          <div className="sm:flex w-full justify-between">
-            <Link to={`/product/${item.id}`}>
-              <p className="sm:text-lg font-bold">{item.name}</p>
-            </Link>
-            <p className="max-sm:text-sm font-bold">MRP: &#8377; {item.price}.00</p>
-          </div>
-          <div className="my-1">
-            <p className="max-sm:text-sm text-gray-500">{`${item.gender}' Shoe`}</p>
-            <p className="max-sm:text-sm text-gray-500">Color: {item.color}</p>
-          </div>
+        <div className="sm:flex w-full justify-between">
+          <Link to={`/product/${item.id}`}>
+            <p className="sm:text-lg font-bold">{item.name}</p>
+          </Link>
+          <p className="max-sm:text-sm font-bold">MRP: &#8377; {item.price}.00</p>
+        </div>
+        <div className="my-1">
+          <p className="max-sm:text-sm text-gray-500">{`${item.gender}' Shoe`}</p>
+          <p className="max-sm:text-sm text-gray-500">Color: {item.color}</p>
+        </div>
         <div className="flex my-1">
           <p className="max-sm:text-sm text-gray-500 pr-5">Size: {item.size}</p>
           <p className="max-sm:text-sm text-gray-500">Quantity</p>
