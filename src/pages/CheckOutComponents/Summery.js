@@ -43,7 +43,7 @@ export const Summery = () => {
         <div className="">
           {
             cartList.map((product, index)=>(
-              <div className="py-8 flex border-b border-gray-200">
+              <div key={index} className="py-8 flex border-b border-gray-200">
                 <img className="sm:w-32 w-56 h-auto object-cover aspect-square sm:mr-5" src={product.thumbnail[0]} alt="" />
                 <div className="">
                   <p className="sm:text-lg font-bold">{product.name}</p>

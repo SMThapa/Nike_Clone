@@ -10,7 +10,7 @@ export const CartReducers = (state, action) => {
             return {...state, cartList: payload.products, total: payload.total}
 
         case "CLEAR_CART":
-            return {...state, cartlist: payload.cartList, total: payload.total }
+            return {...state, cartList: payload.cartList, total: payload.total }
 
         case "CREATE_USER_INFO":
             return {...state, userInfo: payload.userInfo }

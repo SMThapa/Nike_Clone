@@ -6,8 +6,6 @@ export const Cart = () => {
 
   const {cartList} = useCart();
 
-  console.log(cartList)
-
   return (
 
     <div className="theContainer sm:mt-40 mt-20 sm:px-14">

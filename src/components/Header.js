@@ -47,14 +47,17 @@ export const Header = () => {
     setHide(!hide)
   }
 
+  //handles logout
   const handleLogout = () => {
     sessionStorage.removeItem('email')
     sessionStorage.removeItem('token')
     sessionStorage.removeItem('nkid')
     navigate('/')
-}
+  }
+
 
   const token = sessionStorage.getItem("token");  
+  //to show looged email account
   const email = token ? sessionStorage.getItem('email').replace(/['"]+/g, '') : ''
 
   return (
