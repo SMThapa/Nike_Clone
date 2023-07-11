@@ -1224,7 +1224,7 @@
             "https://res.cloudinary.com/dvirqrzq3/image/upload/v1686746154/SHOE_IMAGES/Men/CW2288-111_07.webp",
             "https://res.cloudinary.com/dvirqrzq3/image/upload/v1686746155/SHOE_IMAGES/Men/CW2288-111_08.jpg"
           ],
-          "size": "UK 6.5"
+          "size": "UK 6"
         }
       ],
       "total_sum": 11295,
@@ -1234,52 +1234,11 @@
         "address": "West Bengal, Darjeeling, Kurseong, Singell T.E",
         "pincode": "734203",
         "locality": "Kursong",
-        "number": "6296781249",
-        "email": "sidothapa@gmail.com",
-        "userId": 1
-      },
-      "id": 1
-    },
-    {
-      "products": [
-        {
-          "id": "DR0453-005",
-          "name": "Nike Air Max Pulse",
-          "genre": "Air Max",
-          "price": 13995,
-          "color": "",
-          "gender": "Men",
-          "sale": false,
-          "trending": false,
-          "icon": false,
-          "thumbnail": [
-            "https://res.cloudinary.com/dvirqrzq3/image/upload/v1686746181/SHOE_IMAGES/Men/DR0453-005_01.webp",
-            "https://res.cloudinary.com/dvirqrzq3/image/upload/v1686746181/SHOE_IMAGES/Men/DR0453-005_02.webp",
-            "https://res.cloudinary.com/dvirqrzq3/image/upload/v1686746181/SHOE_IMAGES/Men/DR0453-005_03.webp",
-            "https://res.cloudinary.com/dvirqrzq3/image/upload/v1686746181/SHOE_IMAGES/Men/DR0453-005_04.webp",
-            "https://res.cloudinary.com/dvirqrzq3/image/upload/v1686746181/SHOE_IMAGES/Men/DR0453-005_05.webp",
-            "https://res.cloudinary.com/dvirqrzq3/image/upload/v1686746181/SHOE_IMAGES/Men/DR0453-005_06.webp",
-            "https://res.cloudinary.com/dvirqrzq3/image/upload/v1686746200/SHOE_IMAGES/Men/DR0453-005_07.jpg",
-            "https://res.cloudinary.com/dvirqrzq3/image/upload/v1686746181/SHOE_IMAGES/Men/DR0453-005_08.webp",
-            "https://res.cloudinary.com/dvirqrzq3/image/upload/v1686746181/SHOE_IMAGES/Men/DR0453-005_09.webp",
-            "https://res.cloudinary.com/dvirqrzq3/image/upload/v1686746181/SHOE_IMAGES/Men/DR0453-005_10.webp",
-            "https://res.cloudinary.com/dvirqrzq3/image/upload/v1686746181/SHOE_IMAGES/Men/DR0453-005_11.webp"
-          ],
-          "size": "UK 8"
-        }
-      ],
-      "total_sum": 13995,
-      "quantity": 1,
-      "userInfo": {
-        "name": "Sidddharth Thapa",
-        "address": "West Bengal, Darjeeling, Kurseong, Singell T.E",
-        "pincode": "734200",
-        "locality": "Kursong",
         "number": "6296781251",
         "email": "sidothapa@gmail.com",
         "userId": 1
       },
-      "id": 2
+      "id": 1
     }
   ],
   "users": [

@@ -11,13 +11,18 @@ export const Billling = () => {
 
   const navigate = useNavigate()
 
+  console.log(Date.now())
+
   async function handleSubmit(event){
     event.preventDefault();
+
+    // const theDate = generateDate();
 
     const order = {
       products: cartList,
       total_sum: total,
       quantity: cartList.length,
+      // arrivalDate: theDate,
       userInfo:user
     }
     // eslint-disable-next-line no-unused-vars

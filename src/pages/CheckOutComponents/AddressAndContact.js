@@ -1,8 +1,27 @@
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
+import { useEffect, useState } from "react";
 
 
 export const AddressAndContact = () => {
+
+    //to fetch data for user address if available
+    const [user, setUser] = useState({})
+    const id = JSON.parse(sessionStorage.getItem('nkid'))
+    const token = JSON.parse(sessionStorage.getItem('token'))
+    useEffect(()=>{
+      async function fetchOrder(){
+        const res = await fetch(`http://localhost:8000/660/order?userInfo.userId=${id}`, {
+          method:"GET",
+          headers: {"Content-Type": "application/json", Authorization: `Bearer ${token}`},
+        })
+        const data = await res.json()
+        data.length === 0 ? setUser({}) : setUser(data[0].userInfo)
+      } 
+      fetchOrder()
+    },[token, id])
+    console.log(user)
+
 
     const {createUserInfo} = useCart()
     const navigate = useNavigate()
@@ -11,7 +30,7 @@ export const AddressAndContact = () => {
         navigate('/checkout')
 
         const theObject = {
-            name: `${event.target.firstName.value} ${event.target.lastName.value}`,
+            name: event.target.name.value,
             address: event.target.address.value,
             pincode: event.target.pincode.value,
             locality: event.target.locality.value,
@@ -26,16 +45,15 @@ export const AddressAndContact = () => {
         <h1 className='sm:py-3 sm:text-3xl font-bold'>Address Confirmation</h1>
         <form onSubmit={handleSubmit} className="flex flex-col w-full">
             <h1 className='sm:py-2 sm:text-lg'>Enter your Name and Address:</h1>
-            <input className='border border-gray-300 sm:p-3 sm:my-3 rounded' type="text" name="firstName" placeholder="First Name" required/>
-            <input className='border border-gray-300 sm:p-3 sm:my-3 rounded' type="text" name="lastName" placeholder="Last Name" required/>                        
-            <input className='border border-gray-300 sm:p-3 sm:my-3 rounded' type="text" name="address" placeholder="Address" required/>                        
+            <input className='border border-gray-300 sm:p-3 sm:my-3 rounded' type="text" defaultValue={user.name || ''} name="name" placeholder="Full Name" required/>                       
+            <input className='border border-gray-300 sm:p-3 sm:my-3 rounded' type="text" defaultValue={user.address || ''} name="address" placeholder="Address" required/>                        
             <div className='flex justify-between'>
-                <input className='border border-gray-300 sm:p-3 mr-2 sm:my-3 w-1/2'type="number" name="pincode" placeholder="Pin Code" required/>
-                <input className='border border-gray-300 sm:p-3 sm:my-3 rounded w-1/2' type="text" name="locality" placeholder="Locality" required/>
+                <input className='border border-gray-300 sm:p-3 mr-2 sm:my-3 w-1/2'type="number" name="pincode" defaultValue={user.pincode || ''} placeholder="Pin Code" required/>
+                <input className='border border-gray-300 sm:p-3 sm:my-3 rounded w-1/2' type="text" defaultValue={user.locality || ''} name="locality"  placeholder="Locality" required/>
             </div>    
             <h1 className='sm:py-2 sm:text-lg'>Enter your Contact Information:</h1> 
-            <input className='border border-gray-300 sm:p-3 sm:my-3 rounded' type="number" name="number" placeholder="Phone number" required/>                        
-            <input className='border border-gray-300 sm:p-3 sm:my-3 rounded' type="email" name="email" placeholder="Email" required/>                                  
+            <input className='border border-gray-300 sm:p-3 sm:my-3 rounded' type="number" name="number" defaultValue={user.number || ''} placeholder="Phone number" required/>                        
+            <input className='border border-gray-300 sm:p-3 sm:my-3 rounded' type="email" name="email" defaultValue={user.email || ''} placeholder="Email" required/>                                  
             <div className='w-full'>
                 <button className='bg-blue-600 text-white p-4 min-w-1/3 float-right rounded sm:my-2'>Save and Continue</button>
             </div>
