@@ -8,3 +8,4 @@ export {Help} from '../pages/Help';
 export {ProductDetail} from '../pages/ProductDetail';
 export { CheckOuts } from './CheckOuts';
 export {DashBoard} from './DashBoard';
+export { OrderSuccess } from './OrderSuccess';
