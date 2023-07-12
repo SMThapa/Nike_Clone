@@ -1,9 +1,12 @@
 import { useNavigate } from "react-router-dom"
 import { useCart } from "../../context/CartContext"
+import { useState } from "react"
+import { isDisabled } from "@testing-library/user-event/dist/utils"
 
 export const Billling = () => {
 
   const {cartList, total, userInfo, clearCart} = useCart()
+  const [checked, setChecked] = useState(false)
 
   const token = JSON.parse(sessionStorage.getItem("token"))
   const id = JSON.parse(sessionStorage.getItem("nkid"))
@@ -11,19 +14,17 @@ export const Billling = () => {
 
   const navigate = useNavigate()
 
-  console.log(Date.now())
 
+  const payment = checked ? false : true
   async function handleSubmit(event){
     event.preventDefault();
-
-    // const theDate = generateDate();
 
     const order = {
       products: cartList,
       total_sum: total,
       quantity: cartList.length,
-      // arrivalDate: theDate,
-      userInfo:user
+      userInfo:user,
+      payment: payment
     }
     // eslint-disable-next-line no-unused-vars
     const res = await fetch("http://localhost:8000/660/order", {
@@ -37,14 +38,20 @@ export const Billling = () => {
     navigate("/ordersucess", {state:{data: data}})
   }
 
+
+  const handleChecked = () =>{
+    setChecked(!checked)
+    console.log(checked)
+  }
+
   return (
     <div className="sm:w-7/12 sm:pr-10 top-20 sticky h-full" >
       <h1 className="sm:text-2xl sm:pb-2">Billing</h1>
       <h1 className="text-gray-500 sm:pb-3">Choose your billing method.</h1>
       <div>
         <div className="sm:text-2xl sm:py-6 sm:px-5 sm:w-5/6 border border-gray-300 flex justify-between rounded-xl sm:my-6">
-          <label className="cursor-pointer" htmlFor="COD">Cash on Delivery</label>
-          <input className="cursor-pointer w-6" type="checkbox" id="COD"/>
+          <label className="" htmlFor="">Cash on Delivery</label>
+          <input onClick={handleChecked} className="cursor-pointer w-6" type="checkbox" id="COD"/>
         </div>
 
         <div className="border-b border-gray-300 sm:my-8">
@@ -62,9 +69,15 @@ export const Billling = () => {
                 <input className="sm:px-3 sm:py-5 border border-gray-300 rounded sm:my-4 w-1/2 mr-2" type="month" placeholder="MM/YY"/>
                 <input className="sm:px-3 sm:py-5 border border-gray-300 rounded sm:my-4 w-1/2 ml-2" type="number" maxLength="999" placeholder="CVv"/>
               </div>
-              <div className="w-full">
-                <button className="bg-blue-500 text-white sm:p-3 rounded sm:my-2 float-right sm:w-1/3 disabled:bg-gray-500"> Pay</button>
-              </div>
+              {
+                checked ?               
+                <div className="w-full">
+                  <p onClick={handleSubmit} className="bg-blue-500 text-center text-white sm:p-3 rounded sm:my-2 float-right sm:w-1/3 disabled:bg-gray-500 cursor-pointer" disabled={true}> Continue</p>
+                </div> :
+                <div className="w-full">
+                  <button className="bg-blue-500 text-white sm:p-3 rounded sm:my-2 float-right sm:w-1/3 disabled:bg-gray-500"> Pay</button>
+                </div>
+              }
             </form>
           </div>
         </div>

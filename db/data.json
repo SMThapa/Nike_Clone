@@ -1202,44 +1202,6 @@
     }
   ],
   "order": [
-    {
-      "products": [
-        {
-          "id": "CW2288-111",
-          "name": "Nike Air Force 1 '07",
-          "genre": "Air Force",
-          "price": 11295,
-          "color": "White",
-          "gender": "Men",
-          "sale": "25%",
-          "trending": true,
-          "icon": true,
-          "thumbnail": [
-            "https://res.cloudinary.com/dvirqrzq3/image/upload/v1686746154/SHOE_IMAGES/Men/CW2288-111_01.webp",
-            "https://res.cloudinary.com/dvirqrzq3/image/upload/v1686746154/SHOE_IMAGES/Men/CW2288-111_02.webp",
-            "https://res.cloudinary.com/dvirqrzq3/image/upload/v1686746154/SHOE_IMAGES/Men/CW2288-111_03.webp",
-            "https://res.cloudinary.com/dvirqrzq3/image/upload/v1686746154/SHOE_IMAGES/Men/CW2288-111_04.webp",
-            "https://res.cloudinary.com/dvirqrzq3/image/upload/v1686746154/SHOE_IMAGES/Men/CW2288-111_05.webp",
-            "https://res.cloudinary.com/dvirqrzq3/image/upload/v1686746154/SHOE_IMAGES/Men/CW2288-111_06.webp",
-            "https://res.cloudinary.com/dvirqrzq3/image/upload/v1686746154/SHOE_IMAGES/Men/CW2288-111_07.webp",
-            "https://res.cloudinary.com/dvirqrzq3/image/upload/v1686746155/SHOE_IMAGES/Men/CW2288-111_08.jpg"
-          ],
-          "size": "UK 6"
-        }
-      ],
-      "total_sum": 11295,
-      "quantity": 1,
-      "userInfo": {
-        "name": "Sidddharth Thapa",
-        "address": "West Bengal, Darjeeling, Kurseong, Singell T.E",
-        "pincode": "734203",
-        "locality": "Kursong",
-        "number": "6296781251",
-        "email": "sidothapa@gmail.com",
-        "userId": 1
-      },
-      "id": 1
-    }
   ],
   "users": [
     {

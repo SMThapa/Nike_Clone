@@ -32,7 +32,8 @@ export const Summery = () => {
         <p className="sm:text-lg text-gray-500 sm:mb-2">Deliver to,</p>
         <div className="text-gray-500">
           <p>{userInfo.name}</p>
-          <p className="sm:text-sm sm:my-1">{userInfo.address}, {userInfo.pincode}</p>
+          <p className="sm:text-sm sm:my-1">{userInfo.address}</p>
+          <p className="sm:text-sm sm:my-1">{userInfo.pincode}, {userInfo.locality}</p>
           <p className="sm:text-sm sm:my-1">{userInfo.email}</p>
           <p className="sm:text-sm sm:my-1">+91 {userInfo.number}</p>
         </div>
