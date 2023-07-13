@@ -1,4 +1,4 @@
-import { Products, Filter } from "./ProductListComponents/index"
+import { Products, Filter } from "./components/index"
 
 export const ProductList = ({category}) => {
 

@@ -1,5 +1,5 @@
-import { useCart } from "../context/CartContext"
-import { ItemCard, Summery, EmptyCart } from "./CartComponents/index";
+import { useCart } from "../../context/CartContext"
+import { ItemCard, Summery, EmptyCart } from "./Components/index";
 
 
 export const Cart = () => {

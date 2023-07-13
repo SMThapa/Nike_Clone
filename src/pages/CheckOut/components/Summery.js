@@ -1,4 +1,4 @@
-import { useCart } from "../../context/CartContext"
+import { useCart } from "../../../context/CartContext"
 
 export const Summery = () => {
   const {userInfo, cartList, total} = useCart()

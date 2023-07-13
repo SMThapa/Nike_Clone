@@ -1,10 +1,19 @@
-import { Card } from "../../components/Card";
-import { useFetch } from '../../hooks/useFetch';
+import { useEffect, useState } from "react";
+import { Card } from "../../../components/Card";
+import { getProduct } from "../../../Services/productService";
 
 export const Recommended = () => {
-    let id = " "
-    const {fetchData} = useFetch({id})
-    const bb = fetchData.filter( filt => filt.trending === true)
+
+  const [fetchData, setFetchData] = useState([])
+  useEffect(()=>{
+    async function getData(){
+      const data = await getProduct()
+      setFetchData(data)
+    }
+    getData()
+  },[])
+
+  const bb = fetchData.filter( filt => filt.trending === true)
   return (
     <div className='w-full sm:mb-24 mb-8 flex flex-col sm:px-8 p-2'>
         <h1 className='float-left sm:mb-6 mb-2 sm:text-2xl sm:text-md text-lg font-bold'>You Might Also Like</h1>

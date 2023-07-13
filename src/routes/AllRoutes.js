@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
-import {Home, Cart, LoginPage, Register, ProductList, WishList, Help, ProductDetail, CheckOuts, DashBoard, OrderSuccess} from '../pages/index';
-import { AddressAndContact } from "../pages/CheckOutComponents";
+import {Home, Cart, LoginPage, Register, ProductList, WishList, Help, ProductDetail, CheckOuts, DashBoard, OrderSuccess, PageNotFound} from '../pages/index';
+import { AddressAndContact } from "../pages/CheckOut/AddressAndContact";
 import { ProtectedRoutes } from "./ProtectedRoutes";
 
 import React from 'react'
@@ -28,6 +28,8 @@ export const AllRoutes = () => {
         <Route path="/dashboard" element={<ProtectedRoutes><DashBoard/></ProtectedRoutes>}/>
         <Route path="/userInfo" element={<ProtectedRoutes><AddressAndContact/></ProtectedRoutes>}/> 
         <Route path="/ordersucess" element={<ProtectedRoutes><OrderSuccess/></ProtectedRoutes>}/>
+
+        <Route path="*" element={<PageNotFound/>}/>
     </Routes>
   )
 }

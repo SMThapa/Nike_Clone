@@ -1,14 +1,13 @@
 import { useNavigate } from "react-router-dom"
-import { useCart } from "../../context/CartContext"
+import { useCart } from "../../../context/CartContext"
 import { useState } from "react"
-import { isDisabled } from "@testing-library/user-event/dist/utils"
+import { createOrder } from "../../../Services/dataService"
 
 export const Billling = () => {
 
   const {cartList, total, userInfo, clearCart} = useCart()
   const [checked, setChecked] = useState(false)
 
-  const token = JSON.parse(sessionStorage.getItem("token"))
   const id = JSON.parse(sessionStorage.getItem("nkid"))
   const user = {...userInfo, userId: id}
 
@@ -18,22 +17,7 @@ export const Billling = () => {
   const payment = checked ? false : true
   async function handleSubmit(event){
     event.preventDefault();
-
-    const order = {
-      products: cartList,
-      total_sum: total,
-      quantity: cartList.length,
-      userInfo:user,
-      payment: payment
-    }
-    // eslint-disable-next-line no-unused-vars
-    const res = await fetch("http://localhost:8000/660/order", {
-      method: "POST",
-      headers: {"Content-Type": "application/json", Authorization: `Bearer ${token}`},
-      body: JSON.stringify(order)
-    })
-
-    const data = await res.json();
+    const data = await createOrder(cartList, total, user, payment)
     clearCart();
     navigate("/ordersucess", {state:{data: data}})
   }
@@ -57,8 +41,6 @@ export const Billling = () => {
         <div className="border-b border-gray-300 sm:my-8">
           <div className="flex justify-between items-center">
             <h1 className="sm:text-2xl sm:py-3">Credit or Debit Card</h1>
-            {/* {debitDown && <i className="bi bi-chevron-down"></i>}
-            {!debitDown && <i className="bi bi-chevron-up"></i>} */}
           </div>
           <div className="sm:my-3">
             <h1 className="sm:text-lg text-gray-500">Enter Your Card Details</h1>

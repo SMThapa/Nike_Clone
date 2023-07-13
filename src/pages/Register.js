@@ -1,6 +1,7 @@
 import logo from '../util/NIKE-LOGO.png'
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { authRegister } from '../Services/authService';
 
 export const Register = () => {
 
@@ -14,13 +15,7 @@ export const Register = () => {
       email: event.target.email.value
     }
     
-    const response = await fetch("http://localhost:8000/register", {
-      method: "POST",
-      headers: {"content-Type": "application/json"},
-      body: JSON.stringify(userDetails)
-    })
-
-    const data = await response.json()
+    const data = await authRegister(userDetails)
 
     const registerSession = () => {
       sessionStorage.setItem('token', JSON.stringify(data.accessToken))

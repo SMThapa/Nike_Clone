@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
-import {Card} from '../../components/Card'
-import { useTitle } from '../../hooks/useTitle';
-import {useFilter} from '../../context'
+import {Card} from '../../../components/Card'
+import { useTitle } from '../../../hooks/useTitle';
+import {useFilter} from '../../../context'
 import { useLocation } from 'react-router-dom';
+import { getAllProducts } from '../../../Services/productService';
 
 
 export const Products = ({category}) => {
@@ -19,8 +20,7 @@ export const Products = ({category}) => {
 
   useEffect(()=>{
     async function fetchData(){
-      const response = await fetch(`http://localhost:8000/products?name_like=${searchTerm ? searchTerm : ''}`)
-      const data = await response.json()
+      const data = await getAllProducts(searchTerm)
       initialProductList(data)
     }
     fetchData()

@@ -1,4 +1,4 @@
-import { useCart } from "../../context/CartContext";
+import { useCart } from "../../../context/CartContext";
 import { useNavigate } from "react-router-dom"; 
 
 export const Summery = () => {

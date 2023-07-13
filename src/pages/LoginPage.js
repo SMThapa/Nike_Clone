@@ -1,8 +1,9 @@
-import { NavLink, useNavigate } from "react-router-dom"
-import { toast } from "react-toastify"
-
+import { NavLink, useNavigate} from "react-router-dom"
 import logo from '../util/NIKE-LOGO.png'
 import { useRef } from "react"
+import {authLogin} from "../Services/authService"
+import {toast} from "react-toastify";
+
 
 
 export const LoginPage = () => {
@@ -17,13 +18,7 @@ export const LoginPage = () => {
       email: email.current.value,
       password: password.current.value
     }
-    const res = await fetch("http://localhost:8000/login", {
-      method: "POST",
-      headers: {"content-Type": "application/json"},
-      body: JSON.stringify(userDetails)
-    })
-
-    const data = await res.json()
+    const data = await authLogin(userDetails) 
 
     const loginSession = () => {
       sessionStorage.setItem('token', JSON.stringify(data.accessToken))
@@ -34,7 +29,6 @@ export const LoginPage = () => {
     }
 
     data.accessToken ? loginSession() : toast.error(data);
-
     email.current.value = null
     password.current.value = null
   }

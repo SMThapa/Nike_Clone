@@ -1,4 +1,4 @@
-import { Billling, Summery } from "./CheckOutComponents"
+import { Billling, Summery } from "./components/index"
 
 export const CheckOuts = () => {
   return (

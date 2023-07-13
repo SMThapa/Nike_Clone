@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useFilter } from "../../context"
+import { useFilter } from "../../../context"
 
 export const Filter = ({category}) => {
 

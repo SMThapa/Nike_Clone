@@ -1,23 +1,17 @@
 import { useEffect, useState } from "react"
+import { getOrders } from "../Services/dataService"
 
 export const DashBoard = () => {
 
   const [orders, setOrders] = useState([])
 
-  const id = JSON.parse(sessionStorage.getItem('nkid'))
-  const token = JSON.parse(sessionStorage.getItem('token'))
-
   useEffect(()=>{
     async function fetchOrder(){
-      const res = await fetch(`http://localhost:8000/660/order?userInfo.userId=${id}`, {
-        method:"GET",
-        headers: {"Content-Type": "application/json", Authorization: `Bearer ${token}`},
-      })
-      const data = await res.json()
+      const data = await getOrders()
       setOrders(data)
     } 
     fetchOrder()
-  },[token, id])
+  },[])
   return (
     <div className="sm:mt-40 sm:px-20 lg:px-40 xl:px-60 sm:min-h-screen">
       {orders.length === 0 && <h1 className="h-96 sm:mb-20">Dash board is empty.</h1>}
