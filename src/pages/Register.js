@@ -14,20 +14,19 @@ export const Register = () => {
       password: event.target.repeat_password.value,
       email: event.target.email.value
     }
-    
-    const data = await authRegister(userDetails)
-
-    const registerSession = () => {
-      sessionStorage.setItem('token', JSON.stringify(data.accessToken))
-      sessionStorage.setItem('nkid', JSON.stringify(data.user.id))
-      sessionStorage.setItem('email', JSON.stringify(data.user.email))
-      navigate('/')
-      toast.success("Your logged in now.")
+    try{
+      const data = await authRegister(userDetails)
+      const registerSession = () => {
+        sessionStorage.setItem('token', JSON.stringify(data.accessToken))
+        sessionStorage.setItem('nkid', JSON.stringify(data.user.id))
+        sessionStorage.setItem('email', JSON.stringify(data.user.email))
+        navigate('/')
+        toast.success("You're account is registered.")
+      }
+      data.accessToken ? registerSession() : toast.error(data);
+      }catch(err){
+        toast.error(err.message)
     }
-
-    data.accessToken ? registerSession() : toast.error(data);
-
-    console.log(userDetails)
 
     event.target.email.value = ' '
     event.target.password.value = null

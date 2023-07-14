@@ -7,8 +7,12 @@ export const Trending = () => {
   const [fetchData, setFetchData] = useState([])
   useEffect(()=>{
     async function getData(){
-      const data = await getProduct()
-      setFetchData(data)
+      try{
+        const data = await getProduct()
+        setFetchData(data)
+      }catch(err){
+        console.log(err)
+      }
     }
     getData()
   },[])

@@ -5,6 +5,7 @@ import { useTitle } from '../../hooks/useTitle';
 export const Home = () => {
 
   useTitle("Nike. Just Do It. IN")
+  console.log(process.env.REACT_APP_HOST)
 
   return (
     <div>

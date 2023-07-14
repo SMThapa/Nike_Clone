@@ -20,8 +20,12 @@ export const Products = ({category}) => {
 
   useEffect(()=>{
     async function fetchData(){
-      const data = await getAllProducts(searchTerm)
-      initialProductList(data)
+      try{
+        const data = await getAllProducts(searchTerm)
+        initialProductList(data)
+      }catch(err){
+        console.log(err.message)
+      }
     }
     fetchData()
   // eslint-disable-next-line react-hooks/exhaustive-deps

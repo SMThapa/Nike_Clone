@@ -18,17 +18,20 @@ export const LoginPage = () => {
       email: email.current.value,
       password: password.current.value
     }
-    const data = await authLogin(userDetails) 
 
-    const loginSession = () => {
-      sessionStorage.setItem('token', JSON.stringify(data.accessToken))
-      sessionStorage.setItem('nkid', JSON.stringify(data.user.id))
-      sessionStorage.setItem('email', JSON.stringify(data.user.email))
-      navigate('/')
-      toast.success("Your now logged in.")
+    try{
+      const data = await authLogin(userDetails) 
+      const loginSession = () => {
+        sessionStorage.setItem('token', JSON.stringify(data.accessToken))
+        sessionStorage.setItem('nkid', JSON.stringify(data.user.id))
+        sessionStorage.setItem('email', JSON.stringify(data.user.email))
+        navigate('/')
+        toast.success("You're logged in.")
+      }
+      data.accessToken && loginSession();
+    }catch(err){
+      toast.error("Incorrect password or email.")
     }
-
-    data.accessToken ? loginSession() : toast.error(data);
     email.current.value = null
     password.current.value = null
   }

@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
 import { useEffect, useState } from "react";
+import { findUser } from "../../Services/authService";
 
 
 export const AddressAndContact = () => {
@@ -11,11 +12,7 @@ export const AddressAndContact = () => {
     const token = JSON.parse(sessionStorage.getItem('token'))
     useEffect(()=>{
       async function fetchOrder(){
-        const res = await fetch(`http://localhost:8000/660/order?userInfo.userId=${id}`, {
-          method:"GET",
-          headers: {"Content-Type": "application/json", Authorization: `Bearer ${token}`},
-        })
-        const data = await res.json()
+        const data = await findUser(id, token)
         data.length === 0 ? setUser({}) : setUser(data[0].userInfo)
       } 
       fetchOrder()

@@ -4,7 +4,7 @@ import { useEffect } from "react"
 import { Navigate, useNavigate } from "react-router-dom"
 
 
-export const Details = ({fetchData}) => {
+export const Details = ({fetchData, color}) => {
     const size= {
         Kid : ["UK 1", "UK 2", "UK 3", "UK 4", "UK 5", "UK 6"],
         Women : ["UK 3", "UK 4", "UK 5", "UK 6", "UK 6.5", "UK 7", "UK 7.5", "UK 8", "UK 8.5"],
@@ -79,7 +79,7 @@ export const Details = ({fetchData}) => {
       </p>
       
       <div className="sm:my-3">
-        <p>&bull; Color: {fetchData.color}</p>
+        <p>&bull; Color: {color}</p>
         <p>&bull; Style: {fetchData.id}</p>
       </div>
       
