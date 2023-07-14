@@ -1345,8 +1345,12 @@
       ]
     }
   ],
-  "order": [
-  ],
+  "order": [],
   "users": [
+    {
+      "email": "sidothapa@gmail.com",
+      "password": "$2a$10$uogyus/t1Y1ov93NpcKXz.ahM3No8iKhzrPG2AtZkM4JzM0K4xOOq",
+      "id": 1
+    }
   ]
 }

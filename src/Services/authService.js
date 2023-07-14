@@ -1,5 +1,5 @@
 export async function authLogin(userDetails){
-  const res = await fetch(`${process.env.REACT_ROUTE}/login`, {
+  const res = await fetch(`${process.env.REACT_APP_HOST}/login`, {
     method: "POST",
     headers: {"content-Type": "application/json"},
     body: JSON.stringify(userDetails)
@@ -13,7 +13,7 @@ export async function authLogin(userDetails){
 }
 
 export async function authRegister(userDetails){
-  const res = await fetch(`${process.env.REACT_ROUTE}/register`, {   
+  const res = await fetch(`${process.env.REACT_APP_HOST}/register`, {   
       method: "POST",
       headers: {"content-Type": "application/json"},
       body: JSON.stringify(userDetails)
@@ -27,7 +27,7 @@ export async function authRegister(userDetails){
 }
 
 export async function findUser(id, token){
-  const res = await fetch(`${process.env.REACT_ROUTE}/660/order?userInfo.userId=${id}`, {
+  const res = await fetch(`${process.env.REACT_APP_HOST}/660/order?userInfo.userId=${id}`, {
     method:"GET",
     headers: {"Content-Type": "application/json", Authorization: `Bearer ${token}`},
   })

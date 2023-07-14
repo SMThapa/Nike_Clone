@@ -3,8 +3,9 @@ import { FilterReducers } from "../reducers/index";
 
 const initialState = {
     productList: [],
-    price:null,
+    price: null,
     gender: null,
+    color: "all",
     sale: false
 }
 
@@ -23,6 +24,16 @@ export const FilterProvider = ({children}) =>{
         })
     } 
 
+    function sortPrice(product){
+        if(state.price === "up"){
+            return product.filter(product => product.price > 10000)
+        }
+        if(state.price === "down"){
+            return product.filter(product => product.price < 10000)
+        }
+        return product
+    }
+
     function inSale(products){
         return state.sale ? products.filter(product => product.sale) : products;
     }
@@ -40,7 +51,12 @@ export const FilterProvider = ({children}) =>{
         return products
     }
 
-    const filteredProducts = findGender(inSale(state.productList));
+    function filterColor(product){
+        const colorFiltered = state.color === "all" ? product : product.filter(item => item.color.includes(state.color))
+        return colorFiltered
+    }
+
+    const filteredProducts = findGender(filterColor(sortPrice(inSale(state.productList))));
 
     const value = {
         state,

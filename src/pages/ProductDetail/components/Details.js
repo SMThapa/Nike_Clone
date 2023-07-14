@@ -1,7 +1,7 @@
 import { useRef, useState } from "react"
 import { useCart } from "../../../context/CartContext"
 import { useEffect } from "react"
-import { Navigate, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 
 export const Details = ({fetchData, color}) => {
@@ -22,7 +22,7 @@ export const Details = ({fetchData, color}) => {
     //handles the add_to_cart context component
     const {cartList, addToCart} = useCart()
     const handleClick = (product) => {
-      token ? addToCart({...product, "size":`${theSize}`}) : <Navigate to="login"/>
+      token ? addToCart({...product, "size":`${theSize}`}) : navigate('/login')
     }
 
     //check wether the item in present in cartList or not.
