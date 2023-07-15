@@ -2,6 +2,7 @@ import { useRef, useState } from "react"
 import { useCart } from "../../../context/CartContext"
 import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
+import { useWishList } from "../../../context"
 
 
 export const Details = ({fetchData, color}) => {
@@ -25,12 +26,18 @@ export const Details = ({fetchData, color}) => {
       token ? addToCart({...product, "size":`${theSize}`}) : navigate('/login')
     }
 
+    //
+    const {wishList, addToWishList, removeFromWishList } = useWishList()
+    const [checkWish, setCheckWish] = useState(false);
+
     //check wether the item in present in cartList or not.
     const [checkCart, setCheck] = useState(false);
     useEffect(()=>{
       const aa = cartList.find(item => item.id === fetchData.id)
+      const bb = wishList.find(item => item.id === fetchData.id)
       aa ? setCheck(true): setCheck(false)
-    },[cartList, fetchData])
+      bb ? setCheckWish(true): setCheckWish(false)
+    },[cartList, fetchData, wishList])
 
   return (
     <div className="sm:pl sm:w-1/2 max-sm:p-3">
@@ -66,7 +73,9 @@ export const Details = ({fetchData, color}) => {
       <div className="sm:my-12 my-3 flex w-full justify-between">
         {!checkCart && <button onClick={()=>theSize?handleClick(fetchData):setSelected(false)}  className="w-1/2 mr-2 bg-black text-white p-3 rounded-full">Add to Bag</button>}
         {checkCart && <button onClick={()=>navigate('/cart')}  className="w-1/2 mr-2 bg-black text-white p-3 rounded-full">Go to Cart</button>}
-        <button className="w-1/2 ml-2 p-3 border border-gray-400 rounded-full">Add to Favourite</button>
+        
+        {!checkWish && <button onClick={()=> addToWishList(fetchData)} className="w-1/2 ml-2 p-3 border border-gray-400 rounded-full">Add to Favourite</button>}
+        {checkWish && <button onClick={()=> removeFromWishList(fetchData)} className="w-1/2 ml-2 p-3 border border-gray-400 rounded-full">Remove From It</button>}
       </div>
 
       <p className="sm:my-8 my-5">

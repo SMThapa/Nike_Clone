@@ -71,6 +71,10 @@ export const Filter = ({category}) => {
                 <label onClick={()=>dispatch({type:"COLOR", payload:{color:"Blue"}})} className="sm:p-1 sm:px-3 border cursor-pointer rounded text-center peer-checked:border-black bg-blue-500 text-white" htmlFor="Blue">blue</label>
               </p>
               <p className="sm:m-2">
+                <input type="radio" className="hidden overflow-hidden peer" name="color" id="Cream" />
+                <label onClick={()=>dispatch({type:"COLOR", payload:{color:"Cream"}})} className="sm:p-1 sm:px-3 border cursor-pointer rounded text-center peer-checked:border-black bg-yellow-200 text-black" htmlFor="Cream">cream</label>
+              </p>
+              <p className="sm:m-2">
                 <input type="radio" className="hidden overflow-hidden peer" name="color" id="Red" />
                 <label onClick={()=>dispatch({type:"COLOR", payload:{color:"Red"}})} className="sm:p-1 sm:px-3 border cursor-pointer rounded text-center peer-checked:border-black bg-red-600 text-white" htmlFor="Red">red</label>
               </p>

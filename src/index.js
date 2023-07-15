@@ -6,8 +6,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { ScrollToTop } from './others/ScrollToTop';
-import { FilterProvider } from './context/index';
-import { CartProvider } from './context/index';
+import { FilterProvider, WishProvider, CartProvider} from './context/index';
 import './index.css';
 import './Style/master.css'
 import App from './App';
@@ -18,9 +17,20 @@ root.render(
     <Router>
       <CartProvider>
         <FilterProvider>
-          <ScrollToTop />
-          <ToastContainer position={'bottom-right'} autoClose={2000}/>
-          <App/>
+          <WishProvider>
+            <ScrollToTop />
+            <ToastContainer  
+              position= {"top-center"}  
+              autoClose= {2000} 
+              hideProgressBar= {true}
+              closeOnClick= {false}
+              pauseOnHover= {true}
+              draggable= {true}
+              progress= {undefined}
+              theme= {"light"}
+            />
+            <App/>
+          </WishProvider>
         </FilterProvider>
       </CartProvider>
     </Router>

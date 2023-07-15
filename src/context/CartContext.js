@@ -6,7 +6,7 @@ import { CartReducers } from "../reducers/CartReducers";
 const cartInitialState = {
     cartList:[],
     total: 0,
-    userInfo:[]
+    userInfo:[],
 }
 
 const CartContext = createContext(cartInitialState);
