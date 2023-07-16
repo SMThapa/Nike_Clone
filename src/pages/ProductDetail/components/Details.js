@@ -30,6 +30,10 @@ export const Details = ({fetchData, color}) => {
     const {wishList, addToWishList, removeFromWishList } = useWishList()
     const [checkWish, setCheckWish] = useState(false);
 
+    const checkWishList = (product) =>{
+      token ? addToWishList({...product, "size":`${theSize}`}) : navigate('/login')
+    }
+
     //check wether the item in present in cartList or not.
     const [checkCart, setCheck] = useState(false);
     useEffect(()=>{
@@ -74,7 +78,7 @@ export const Details = ({fetchData, color}) => {
         {!checkCart && <button onClick={()=>theSize?handleClick(fetchData):setSelected(false)}  className="w-1/2 mr-2 bg-black text-white p-3 rounded-full">Add to Bag</button>}
         {checkCart && <button onClick={()=>navigate('/cart')}  className="w-1/2 mr-2 bg-black text-white p-3 rounded-full">Go to Cart</button>}
         
-        {!checkWish && <button onClick={()=> addToWishList(fetchData)} className="w-1/2 ml-2 p-3 border border-gray-400 rounded-full">Add to Favourite</button>}
+        {!checkWish && <button onClick={()=> theSize?checkWishList(fetchData):setSelected(false)} className="w-1/2 ml-2 p-3 border border-gray-400 rounded-full">Add to Favourite</button>}
         {checkWish && <button onClick={()=> removeFromWishList(fetchData)} className="w-1/2 ml-2 p-3 border border-gray-400 rounded-full">Remove From It</button>}
       </div>
 

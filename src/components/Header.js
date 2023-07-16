@@ -53,6 +53,7 @@ export const Header = () => {
     sessionStorage.removeItem('token')
     sessionStorage.removeItem('nkid')
     navigate('/')
+    setOpen(false)
   }
 
 
@@ -119,8 +120,8 @@ export const Header = () => {
               </button>
             </div>
           </div>
-          <div className="items-center justify-between sm:hidden-none flex md:w-auto md:order-1 w-full z-10" id="navbar-sticky">
-            <ul className={`flex flex-col p-4 md:p-0 mt-4 w-full ${IsOpen ? '': 'max-md:hidden'} justify-center font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white max-sm:shadow-lg z-10`}>
+          <div className={`max-md:flex flex-col items-center justify-between sm:hidden-none flex md:w-auto md:order-1 w-full z-10" id="navbar-sticky ${IsOpen ?'max-md:h-screen':''}`}>
+            <ul className={`md:flex max-md:mt-8 p-4 md:p-0 w-full max-md:h-full ${IsOpen ? '': 'max-md:hidden'} justify-center font-medium border border-gray-100 rounded-lg bg-gray-100 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white max-sm:shadow-lg z-10`}>
               <li>
                 <NavLink to='/products/men' onClick={handleClose} className="block py-2 pl-3 pr-4 text-black md:p-0">Men</NavLink>
               </li>
@@ -133,9 +134,24 @@ export const Header = () => {
               <li>
                 <NavLink to='/products/sales' onClick={handleClose} className="block py-2 pl-3 pr-4 text-black md:p-0">Sales</NavLink>
               </li>
-              <li className="md:hidden">
-                <NavLink to='/wishlist' onClick={handleClose} className="block py-2 pl-3 pr-4 text-black md:p-0">Wishlist</NavLink>
-              </li>
+              <div className="md:hidden  absolute bottom-24 w-full">
+                {
+                  token ? 
+                  <div>
+                    <NavLink to='/wishlist' onClick={handleClose} className="block py-2 pl-3 pr-4 text-black md:p-0">Wishlist</NavLink>
+                    <p onClick={()=>navigate('/dashboard')} className="py-2 pl-3 pr-4 cursor-pointer hover:underline">My Orders</p>
+                    <p onClick={handleLogout} className="py-2 pl-3 pr-4 cursor-pointer hover:underline">Logout</p>
+                    <div className="flex items-center py-2 pl-3 pr-4">
+                      <i className="bi bi-person-fill pl-2 text-xs"></i>
+                      <p className='px-1' >{email}</p>
+                    </div>
+                  </div> :
+                  <div className="flex flex-col ">
+                    <NavLink to='/login' onClick={()=>closeMenu(true)} className='py-2'>Login in</NavLink>
+                    <NavLink to='/register' onClick={()=>closeMenu(true)} className='py-2'>Join Us</NavLink>
+                  </div>
+                }
+              </div> 
             </ul>
           </div>
         </div>

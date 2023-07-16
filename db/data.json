@@ -1434,6 +1434,11 @@
       "email": "sidothapa@gmail.com",
       "password": "$2a$10$uogyus/t1Y1ov93NpcKXz.ahM3No8iKhzrPG2AtZkM4JzM0K4xOOq",
       "id": 1
+    },
+    {
+      "email": "siddharthapa@gmail.com",
+      "password": "$2a$10$fhVKQuU0jaZczm4p4xsQuueQl3RIBSmO3Of5r9q5PeCPT3hCFezzm",
+      "id": 2
     }
   ]
 }

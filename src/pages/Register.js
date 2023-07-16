@@ -2,18 +2,21 @@ import logo from '../util/NIKE-LOGO.png'
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { authRegister } from '../Services/authService';
+import { useRef } from 'react';
 
 export const Register = () => {
 
   const navigate = useNavigate()
+  const email = useRef();
+  const password = useRef();
+  const repeatPassword = useRef();
 
-  async function handleSubmit(event){
-    event.preventDefault();
-
+  async function handleSubmitSubmit(){
     const userDetails = {
-      password: event.target.repeat_password.value,
-      email: event.target.email.value
+      password: repeatPassword.current.value,
+      email: email.current.value
     }
+    
     try{
       const data = await authRegister(userDetails)
       const registerSession = () => {
@@ -25,12 +28,22 @@ export const Register = () => {
       }
       data.accessToken ? registerSession() : toast.error(data);
       }catch(err){
-        toast.error(err.message)
+        toast.error("Email already exists.")
     }
 
-    event.target.email.value = ' '
-    event.target.password.value = null
-    event.target.repeat_password.value = null
+    email.current.value = ' '
+    password.current.value = null
+    repeatPassword.current.value = null
+  }
+
+  const handleWorning = () =>{
+    toast.error("You entered wrong password.");
+    repeatPassword.current.value = null
+  }
+
+  const handleSubmit = (event) =>{
+    event.preventDefault()
+    repeatPassword.current.value === password.current.value ? handleSubmitSubmit() : handleWorning();
   }
 
   return (
@@ -43,15 +56,15 @@ export const Register = () => {
           </div>
           <div className="mb-4">
             {/* <label htmlFor="email" className="block text-sm font-medium text-gray-900 dark:text-white">Your email</label> */}
-            <input type="email" id="email" className="bg-gray-50 border border-gray-200 shadow-sm text-gray-500 text-sm block w-full p-2.5 focus:outline-none rounded-sm" placeholder="Email address" required/>
+            <input ref={email} type="email" id="email" className="bg-gray-50 border border-gray-200 shadow-sm text-gray-500 text-sm block w-full p-2.5 focus:outline-none rounded-sm" placeholder="Email address" required/>
           </div>
           <div className="mb-4">
             {/* <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-white">Your password</label> */}
-            <input type="password" id="password" className="bg-gray-50 border border-gray-200 shadow-sm text-gray-500 text-sm block w-full p-2.5 focus:outline-none rounded-sm" placeholder="create password" required/>
+            <input ref={password} type="password" id="password" className="bg-gray-50 border border-gray-200 shadow-sm text-gray-500 text-sm block w-full p-2.5 focus:outline-none rounded-sm" placeholder="create password" required/>
           </div>
           <div className="mb-6">
             {/* <label for="repeat-password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Repeat password</label> */}
-            <input type="password" id="repeat_password" className="bg-gray-50 border border-gray-200 shadow-sm text-gray-500 text-sm block w-full p-2.5 focus:outline-none rounded-sm" placeholder="confirm password" required/>
+            <input ref={repeatPassword} type="password" id="repeat_password" className="bg-gray-50 border border-gray-200 shadow-sm text-gray-500 text-sm block w-full p-2.5 focus:outline-none rounded-sm" placeholder="confirm password" required/>
           </div>
           <div className="flex items-start mb-6 items-center">
             <div className="flex items-center h-5">
