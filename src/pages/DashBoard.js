@@ -13,19 +13,19 @@ export const DashBoard = () => {
     fetchOrder()
   },[])
   return (
-    <div className="sm:mt-40 mt-28 sm:px-20 px-5 lg:px-40 xl:px-60 h-screen">
-      {orders.length === 0 && <h1 className="h-96 sm:mb-20">Dash board is empty.</h1>}
+    <div className="sm:mt-40 sm:px-20 px-5 lg:px-40 xl:px-60 h-screen">
+      {orders.length === 0 && <h1 className="h-96 sm:mb-20 mt-28">Dash board is empty.</h1>}
       {orders.length !== 0  && 
         <div className="">
         {
           orders.map((item , index)=>(
-            <div key={item.id} className="sm:my-12 border-b border-gray-400">
-              <p>Order {index + 1}</p>
+            <div key={item.id} className="py-12 border-b border-gray-400">
+              <p className="max-sm:py-8 text-xl">Order {index + 1}</p>
               {
                 item.products.map(product =>(
-                  <div key={product.id} className="flex justify-between border-b border-gray-200">
-                    <div className="py-8 flex">
-                      <img className="sm:w-32 w-56 h-auto object-cover aspect-square sm:mr-5" src={product.thumbnail[0]} alt="" />
+                  <div key={product.id} className="sm:flex justify-between border-b border-gray-200">
+                    <div className="sm:py-8 py-5 flex">
+                      <img className="w-32 h-auto object-cover aspect-square sm:mr-5" src={product.thumbnail[0]} alt="" />
                       <div className="">
                         <p className="sm:text-lg font-bold">{product.name}</p>
                         <div className="flex my-1">
@@ -33,11 +33,11 @@ export const DashBoard = () => {
                           <p className="max-sm:text-sm text-gray-500">{`${product.gender}' Shoe`}</p>
                         </div>
                         <p className="max-sm:text-sm text-gray-500">Color: {product.color}</p>
-                        {/* <p className="max-sm:text-sm font-bold">&#8377; {product.price}.00</p> */}
+                        <p className="max-sm:text-sm font-bold">&#8377; {product.price}.00</p>
                       </div>
                     </div>
-                    <div className="flex items-center">
-                      <button>Cancel Order</button>
+                    <div className="sm:flex items-center float-right">
+                      <button className="max-sm:py-3">Cancel Order</button>
                     </div>
                   </div>
                 ))
