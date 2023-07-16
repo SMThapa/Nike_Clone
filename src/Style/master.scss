@@ -47,7 +47,7 @@ img{
 .centerContainer{
     display: flex;
     width: 100%;
-    margin-top: 12vh;
+    margin-top: 13vh;
     margin-bottom: 5vh;
     min-height: 80vh;
     justify-content: center;
@@ -74,6 +74,9 @@ img{
 @media screen and (max-width:640px){
     .essentialDivHeight{
         height: 21rem;
+    }
+    .centerContainer{
+        margin-top: 8vh;
     }
 }
 

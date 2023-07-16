@@ -3,10 +3,12 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom"
 import { useCart } from "../context/CartContext"
 import logo from '../util/NIKE-LOGO.png'
 import logo2 from '../util/JORDAN-LOGO.png'
+import { useWishList } from "../context/WishContext"
 
 export const Header = () => {
 
-  const {cartList} = useCart()
+  const {cartList, clearCart} = useCart()
+  const {clearWishList} = useWishList()
   const [isIt, setIt] = useState(true)
 
   //this allows to toggles user menu
@@ -47,12 +49,19 @@ export const Header = () => {
     setHide(!hide)
   }
 
+  const handleMyOrder = () =>{
+    navigate('/dashboard')
+    setOpen(false)
+  }
+
   //handles logout
   const handleLogout = () => {
     sessionStorage.removeItem('email')
     sessionStorage.removeItem('token')
     sessionStorage.removeItem('nkid')
     navigate('/')
+    clearCart()
+    clearWishList()
     setOpen(false)
   }
 
@@ -121,7 +130,7 @@ export const Header = () => {
             </div>
           </div>
           <div className={`max-md:flex flex-col items-center justify-between sm:hidden-none flex md:w-auto md:order-1 w-full z-10" id="navbar-sticky ${IsOpen ?'max-md:h-screen':''}`}>
-            <ul className={`md:flex max-md:mt-8 p-4 md:p-0 w-full max-md:h-full ${IsOpen ? '': 'max-md:hidden'} justify-center font-medium border border-gray-100 rounded-lg bg-gray-100 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white max-sm:shadow-lg z-10`}>
+            <ul className={`md:flex max-md:mt-8 p-4 md:p-0 w-full max-md:h-full ${IsOpen ? '': 'max-md:hidden'} justify-center font-medium border border-gray-100 rounded-lg bg-gray-100 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white max-sm:shadow-lg z-10 max-md:relative`}>
               <li>
                 <NavLink to='/products/men' onClick={handleClose} className="block py-2 pl-3 pr-4 text-black md:p-0">Men</NavLink>
               </li>
@@ -134,16 +143,16 @@ export const Header = () => {
               <li>
                 <NavLink to='/products/sales' onClick={handleClose} className="block py-2 pl-3 pr-4 text-black md:p-0">Sales</NavLink>
               </li>
-              <div className="md:hidden  absolute bottom-24 w-full">
+              <div className="md:hidden absolute bottom-24 pr-5 w-full">
                 {
                   token ? 
-                  <div>
+                  <div className="">
                     <NavLink to='/wishlist' onClick={handleClose} className="block py-2 pl-3 pr-4 text-black md:p-0">Wishlist</NavLink>
-                    <p onClick={()=>navigate('/dashboard')} className="py-2 pl-3 pr-4 cursor-pointer hover:underline">My Orders</p>
-                    <p onClick={handleLogout} className="py-2 pl-3 pr-4 cursor-pointer hover:underline">Logout</p>
-                    <div className="flex items-center py-2 pl-3 pr-4">
+                    <p onClick={handleMyOrder} className="py-2 pl-3 pr-4 cursor-pointer hover:underline">My Orders</p>
+                    <p onClick={handleLogout} className="py-2 pl-3 pr-4 pb-4 cursor-pointer hover:underline">Logout</p>
+                    <div className="flex items-center py-2 pr-4 border-t border-gray-300">
                       <i className="bi bi-person-fill pl-2 text-xs"></i>
-                      <p className='px-1' >{email}</p>
+                      <p className='px-1 py-4' >{email}</p>
                     </div>
                   </div> :
                   <div className="flex flex-col ">

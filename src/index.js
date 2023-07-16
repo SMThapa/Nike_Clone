@@ -20,7 +20,7 @@ root.render(
           <WishProvider>
             <ScrollToTop />
             <ToastContainer  
-              position= {"top-center"}  
+              position= {"bottom-right"}  
               autoClose= {2000} 
               hideProgressBar= {true}
               closeOnClick= {false}

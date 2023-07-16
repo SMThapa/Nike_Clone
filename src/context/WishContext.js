@@ -31,10 +31,20 @@ export const WishProvider = ({children}) => {
         })
     }
 
+    function clearWishList(){
+        dispatch({
+            type:"CLEAR_WISH_LIST",
+            payload:{
+                wishList:[]
+            }
+        })
+    }
+
     const value = {
         wishList: state.wishList,
         addToWishList,
-        removeFromWishList
+        removeFromWishList,
+        clearWishList
     }
     return(
         <WishContext.Provider value={value}>

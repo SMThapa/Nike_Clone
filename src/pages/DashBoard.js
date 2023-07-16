@@ -13,7 +13,7 @@ export const DashBoard = () => {
     fetchOrder()
   },[])
   return (
-    <div className="sm:mt-40 sm:px-20 lg:px-40 xl:px-60 sm:min-h-screen">
+    <div className="sm:mt-40 mt-28 sm:px-20 px-5 lg:px-40 xl:px-60 h-screen">
       {orders.length === 0 && <h1 className="h-96 sm:mb-20">Dash board is empty.</h1>}
       {orders.length !== 0  && 
         <div className="">

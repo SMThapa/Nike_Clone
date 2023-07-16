@@ -9,6 +9,9 @@ export const WishReducer = (state, action) => {
         case "REMOVE_FROM_WISHLIST":
             return{...state, wishList: payload.product }
         
+        case "CLEAR_WISH_LIST":
+            return{...state, wishList: payload.wishList }
+        
         default:
             throw new Error("no case found")
     }
