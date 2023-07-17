@@ -28,7 +28,7 @@ export const Register = () => {
       }
       data.accessToken ? registerSession() : toast.error(data);
       }catch(err){
-        toast.error("Email already exists.")
+        toast.error("Email already exists. ")
     }
 
     email.current.value = ' '
