@@ -1,6 +1,6 @@
 import { useCart } from "../../../context/CartContext"
 
-export const Summery = () => {
+export const Summery = ({deliveryDate}) => {
   const {userInfo, cartList, total} = useCart()
 
   return (
@@ -29,7 +29,7 @@ export const Summery = () => {
           </div>
           <p className="text-sm sm:pb-5 max-sm:py-3">(The total reflects the price of your order. Including all duties and taxes.)</p>
 
-          <div className="border-b border-gray-300 pb-5 max-sm:my-5">
+          <div className="border-b border-gray-300 my-5">
             <p className="sm:text-lg text-xl text-gray-500 sm:mb-2 mb-1">Deliver to,</p>
             <div className="text-gray-500">
               <p>{userInfo.name}</p>
@@ -41,8 +41,9 @@ export const Summery = () => {
           </div>
         </div>
 
-        <div className="sm:py-5">
-        <p className="sm:text-lg  text-gray-500">Ordered products,</p>
+        <div className="sm:py-4">
+          <h1 className="sm:my-1 text-xl">Arrives by {deliveryDate[1]} {deliveryDate[0]} {deliveryDate[2]}</h1>
+          <p className="sm:text-lg  text-gray-500">Ordered products,</p>
           <div className="">
             {
               cartList.map((product, index)=>(

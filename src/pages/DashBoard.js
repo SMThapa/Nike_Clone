@@ -13,7 +13,8 @@ export const DashBoard = () => {
     fetchOrder()
   },[])
   return (
-    <div className="sm:mt-40 sm:px-20 px-5 lg:px-40 xl:px-60 h-screen">
+    <div className="sm:mt-28 sm:px-20 px-5 lg:px-40 xl:px-60 min-h-screen">
+      <h1 className="text-xl">Dashboard</h1>
       {orders.length === 0 && <h1 className="h-96 sm:mb-20 mt-28">Dash board is empty.</h1>}
       {orders.length !== 0  && 
         <div className="">
@@ -21,6 +22,7 @@ export const DashBoard = () => {
           orders.map((item , index)=>(
             <div key={item.id} className="py-12 border-b border-gray-400">
               <p className="max-sm:py-8 text-xl">Order {index + 1}</p>
+              <p className="max-sm:py-8 text-lg text-gray-600">Arrives by {item.deliveryDate[1]} {item.deliveryDate[0]} {item.deliveryDate[2]}</p>
               {
                 item.products.map(product =>(
                   <div key={product.id} className="sm:flex justify-between border-b border-gray-200">
@@ -33,7 +35,7 @@ export const DashBoard = () => {
                           <p className="max-sm:text-sm text-gray-500">{`${product.gender}' Shoe`}</p>
                         </div>
                         <p className="max-sm:text-sm text-gray-500">Color: {product.color}</p>
-                        <p className="max-sm:text-sm font-bold">&#8377; {product.price}.00</p>
+                        {/* <p className="max-sm:text-sm font-bold">&#8377; {product.price}.00</p> */}
                       </div>
                     </div>
                     <div className="sm:flex items-center float-right">

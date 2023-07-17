@@ -3,7 +3,7 @@ import { useCart } from "../../../context/CartContext"
 import { useState } from "react"
 import { createOrder } from "../../../Services/dataService"
 
-export const Billling = () => {
+export const Billling = ({deliveryDate}) => {
 
   const {cartList, total, userInfo, clearCart} = useCart()
   const [checked, setChecked] = useState(false)
@@ -17,7 +17,7 @@ export const Billling = () => {
   const payment = checked ? false : true
   async function handleSubmit(event){
     event.preventDefault();
-    const data = await createOrder(cartList, total, user, payment)
+    const data = await createOrder(cartList, total, user, payment, deliveryDate)
     clearCart();
     navigate("/ordersucess", {state:{data: data}})
   }

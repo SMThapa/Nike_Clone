@@ -1,9 +1,15 @@
 import { useCart } from "../../../context/CartContext";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 export const ItemCard = ({item}) => {
 
   const {removeFromCart} = useCart();
+
+  const [color, setColor] = useState([])
+  useEffect(()=>{
+    setColor(item.color.join('/'))
+  },[item])
 
   return (
     <div className="py-8 sm:mr-8 flex border-b border-gray-200">
@@ -19,11 +25,11 @@ export const ItemCard = ({item}) => {
         </div>
         <div className="my-1">
           <p className="max-sm:text-sm text-gray-500">{`${item.gender}' Shoe`}</p>
-          <p className="max-sm:text-sm text-gray-500">Color: {item.color}</p>
+          <p className="max-sm:text-sm text-gray-500">Color: {color}</p>
         </div>
         <div className="flex my-1">
           <p className="max-sm:text-sm text-gray-500 pr-5">Size: {item.size}</p>
-          <p className="max-sm:text-sm text-gray-500">Quantity</p>
+          <p className="max-sm:text-sm text-gray-500">Quantity : 1</p>
         </div>
         <div className="flex sm:my-4 my-2">
           <i className="bi bi-heart pr-5 cursor-pointer"></i>

@@ -16,14 +16,15 @@ export async function getOrders(){
 }
 
 
-export async function createOrder(cartList, total, user, payment){
+export async function createOrder(cartList, total, user, payment, deliveryDate){
     const token = JSON.parse(sessionStorage.getItem('token'));
     const order = {
         products: cartList,
         total_sum: total,
         quantity: cartList.length,
         userInfo:user,
-        payment: payment
+        payment: payment,
+        deliveryDate: deliveryDate
     }
     const res = await fetch(`${process.env.REACT_APP_HOST}/660/order`, {
         method: "POST",

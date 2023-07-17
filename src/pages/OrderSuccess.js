@@ -7,7 +7,7 @@ export const OrderSuccess = () => {
   const data = state.data;
 
   return (
-    <div className="sm:my-40 px-5 h-screen flex flex-col justify-center items-center">
+    <div className="px-5 h-screen flex flex-col justify-center items-center">
         <h1 className="text-xl">Order Summery</h1>
         <div className="flex flex-col justify-center items-center  border-black rounded-lg sm:p-12">
             <img className='h-12 w-16' src={logo} alt="" />
