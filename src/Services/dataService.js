@@ -11,7 +11,6 @@ export async function getOrders(){
         throw ({message: res.statusText, status: res.status});
     }
     const data = await res.json()
-    
     return data
 }
 
