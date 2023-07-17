@@ -5,7 +5,7 @@ import { useTitle } from '../../hooks/useTitle';
 export const Home = () => {
 
   useTitle("Nike. Just Do It. IN")
-  console.log(process.env.REACT_APP_HOST)
+  console.log(process.env.REACT_APP_HOST )
   return (
     <div>
       <div className='theAnotherContainer py-2 text-center border border-x-0 border-gray-200' style={{backgroundColor:'#f5f3f4'}}>
