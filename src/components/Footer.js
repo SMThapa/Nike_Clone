@@ -3,7 +3,7 @@ import logo from '../util/NIKE.png'
 export const Footer = () => {
   return (
     <div>
-    <footer className="bg-white shadow dark:bg-black">
+    <footer className=" shadow bg-black">
         <div className="w-full mx-auto p-4 md:px-12 lg:px-20">
             <div className="flex sm: flex-col">
                 <div className="flex items-center justify-between mb-4 sm:mb-4">
