@@ -28,7 +28,7 @@ export const Register = () => {
       }
       data.accessToken ? registerSession() : toast.error(data);
       }catch(err){
-        toast.error("Email already exists. ")
+        toast.error("Email already exists.")
     }
 
     email.current.value = ' '
@@ -37,8 +37,8 @@ export const Register = () => {
   }
 
   const handleWorning = () =>{
-    toast.error("You entered wrong password.");
     repeatPassword.current.value = null
+    toast.error("re-enter your password.")
   }
 
   const handleSubmit = (event) =>{

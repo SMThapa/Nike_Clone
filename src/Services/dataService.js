@@ -2,7 +2,7 @@ export async function getOrders(){
     const token = JSON.parse(sessionStorage.getItem('token'));
     const id = JSON.parse(sessionStorage.getItem('nkid'))
 
-    const res = await fetch(`${process.env.REACT_APP_HOST}/660/order?userInfo.userId=${id}`, {
+    const res = await fetch(`https://nike-clone-server.onrender.com/660/order?userInfo.userId=${id}`, {
         method:"GET",
         headers: {"Content-Type": "application/json", Authorization: `Bearer ${token}`},
     })
@@ -25,7 +25,7 @@ export async function createOrder(cartList, total, user, payment, deliveryDate){
         payment: payment,
         deliveryDate: deliveryDate
     }
-    const res = await fetch(`${process.env.REACT_APP_HOST}/660/order`, {
+    const res = await fetch(`https://nike-clone-server.onrender.com/660/order`, {
         method: "POST",
         headers: {"Content-Type": "application/json", Authorization: `Bearer ${token}`},
         body: JSON.stringify(order)

@@ -30,7 +30,7 @@ export const LoginPage = () => {
       }
       data.accessToken && loginSession();
     }catch(err){
-      toast.error(err.message)
+      toast.error("Incorrect email or password.")
     }
     email.current.value = null
     password.current.value = null
