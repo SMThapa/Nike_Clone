@@ -27,7 +27,7 @@ export const DashBoard = () => {
                 item.products.map(product =>(
                   <div key={product.id} className="sm:flex justify-between border-b border-gray-200">
                     <div className="sm:py-8 py-5 flex">
-                      <img className="w-32 h-auto object-cover aspect-square sm:mr-5" src={product.thumbnail[0]} alt="" />
+                      <img className="w-32 h-auto object-cover aspect-square sm:mr-5 mr-2" src={product.thumbnail[0]} alt="" />
                       <div className="">
                         <p className="sm:text-lg font-bold">{product.name}</p>
                         <div className="flex my-1">
