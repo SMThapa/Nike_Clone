@@ -21,8 +21,8 @@ export const DashBoard = () => {
         {
           orders.map((item , index)=>(
             <div key={item.id} className="py-12 border-b border-gray-400">
-              <p className="max-sm:py-8 text-xl">Order {index + 1}</p>
-              <p className="max-sm:py-8 text-lg text-gray-600">Arrives by {item.deliveryDate[1]} {item.deliveryDate[0]} {item.deliveryDate[2]}</p>
+              <p className="max-sm:py-1 text-xl">Order {index + 1}</p>
+              <p className="text-lg text-gray-600">Arrives by {item.deliveryDate[1]} {item.deliveryDate[0]} {item.deliveryDate[2]}</p>
               {
                 item.products.map(product =>(
                   <div key={product.id} className="sm:flex justify-between border-b border-gray-200">
@@ -38,12 +38,12 @@ export const DashBoard = () => {
                         {/* <p className="max-sm:text-sm font-bold">&#8377; {product.price}.00</p> */}
                       </div>
                     </div>
-                    <div className="sm:flex items-center float-right">
-                      <button className="max-sm:py-3">Cancel Order</button>
-                    </div>
                   </div>
                 ))
               }
+              <div className="sm:flex items-center float-right">
+                <button className="py-3">Cancel Order</button>
+              </div>
             </div>
           ))
         }

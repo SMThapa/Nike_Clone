@@ -45,12 +45,12 @@ export const Details = ({fetchData, color}) => {
 
   return (
     <div className="sm:pl sm:w-1/2 max-sm:p-3">
-      <div>
+      <div className="max-sm:mb-1">
         <p className="sm:text-3xl text-lg">{fetchData.name}</p>
         <p className="sm:text-lg text-gray-500">{`${fetchData.gender}'s Shoe`}</p>
       </div>
 
-      <div className="my-5">
+      <div className="sm:my-5 max-sm:mb-5">
         <p className="sm:text-lg font-bold">MRP: Rs.{fetchData.price}</p>
         <p className="text-gray-500">incl. of taxes <br /> (Also includes all applicable duties)</p>
       </div>

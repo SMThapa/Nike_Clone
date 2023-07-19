@@ -9,8 +9,8 @@ export const Card = ({ data}) => {
         <img className=" sm:mx-auto w-full h-auto aspect-square object-center object-cover" src={data.thumbnail[0]}alt="" />
         <div className="py-5 flex flex-col item-center justify-center">
             <h5 className="text-blue-700 max-sm:text-xs">{data.gender}'s shoe</h5>
-            <h5 className="mb-1 sm:text-xl tracking-tight text-gray-900 text-black">{data.name}</h5>  
-            <h5 className="mb-1 sm:text-1xl tracking-tight text-gray-900 text-black">Rs. {data.price}/-</h5>
+            <h5 className="sm:text-xl tracking-tight text-gray-900 text-black">{data.name}</h5>  
+            <h5 className="sm:text-1xl tracking-tight text-gray-900 text-black">Rs. {data.price}/-</h5>
         </div>
       </Link>
     </div>

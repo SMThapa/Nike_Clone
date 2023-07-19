@@ -130,7 +130,7 @@ export const Header = () => {
             </div>
           </div>
           <div className={`max-md:flex flex-col items-center justify-between sm:hidden-none flex md:w-auto md:order-1 w-full z-10" id="navbar-sticky ${IsOpen ?'max-md:h-screen':''}`}>
-            <ul className={`md:flex max-md:mt-8 p-4 md:p-0 w-full max-md:h-full ${IsOpen ? '': 'max-md:hidden'} justify-center font-medium border border-gray-100 rounded-lg bg-gray-100 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white max-sm:shadow-lg z-10 max-md:relative`}>
+            <ul className={`md:flex p-4 md:p-0 w-full max-md:h-full ${IsOpen ? '': 'max-md:hidden'} justify-center font-medium border border-gray-100 rounded-lg bg-gray-100 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white max-sm:shadow-lg z-10 max-md:relative`}>
               <li>
                 <NavLink to='/products/men' onClick={handleClose} className="block py-2 pl-3 pr-4 text-black md:p-0">Men</NavLink>
               </li>

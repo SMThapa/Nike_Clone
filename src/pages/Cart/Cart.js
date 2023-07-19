@@ -14,7 +14,7 @@ export const Cart = () => {
       
       <div className="sm:flex w-full xl:px-40">
         <div className="sm:w-2/3 ">
-          <h1 className="text-xl py-1">Bag</h1>
+          <h1 className="text-xl sm:py-1">Bag</h1>
           {
             cartList.map((item, index) => (
               <ItemCard key={index} item={item}/>
