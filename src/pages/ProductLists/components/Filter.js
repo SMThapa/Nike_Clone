@@ -1,28 +1,52 @@
-import { useState } from "react"
+import { useState } from "react";
 import { useFilter } from "../../../context"
 
 export const Filter = ({category}) => {
 
-  const {state, dispatch} = useFilter();
-
-  const [open, setOpen] = useState(false);
-
-  const handleClick = () => {
-    setOpen(!open)
+  const [price, setPrice] = useState(true);
+  const handlePriceOpen = () => {
+    setPrice(!price)
   }
+
+  const [gender, setGender] = useState(true);
+  const handleGenderOpen = () => {
+    setGender(!gender)
+  }
+
+  const [color, setColor] = useState(true);
+  const handleColorOPen = () => {
+    setColor(!color)
+  }
+
+  const [sales, setSales] = useState(true);
+  const handleSalesOpen = () => {
+    setSales(!sales)
+  }
+
+  const {state, dispatch, setOpen} = useFilter();
+
+  const handleClose = () => {
+    setOpen(false)
+  }
+
   return (
-    <div className={`h-screen ${open?'w-80': ''} mt-24 sticky top-0 max-md:hidden`} >
-      <div className={`h-full flex justify-center items-center bg-gray-100 sticky top-0 ${open? '' : 'hidden'}`}>
-        <div className="w-full h-full px-5 py-3 z-20">
+    <div className={`h-screen sm:w-68 max-sm:w-screen pt-12 sticky sm:top-0 t-40 max-sm:fixed max-sm:z-20 bg-white`} >
+      <i onClick={handleClose} className="bi bi-x-circle w-screen px-5 py-4 sm:hidden"></i>
+      <div className={`h-full sm:flex justify-center items-center sticky top-0`}>
+        <div className="md:w-64 lg:w-72 h-full sm:px-5 px-12 sm:py-3 z-20">
           
-          <div className="mt-14 sm:pb-3 border-b border-gray-400">            
-            <h1 className="my-2">PRICE</h1>
-            <div className="price">
-              <div className="ml-5">
+          <div className="sm:mt-14 sm:pb-3 border-b border-gray-400">            
+            <div onClick={handlePriceOpen} className="my-2 cursor-pointer flex justify-between items-center">
+              <h1>PRICE</h1>
+              {price && <i className="bi bi-chevron-up"></i>}
+              {!price && <i className="bi bi-chevron-down"></i>}
+            </div>
+            <div className={price?'' : "hidden"}>
+              <div className="ml-2">
                 <input onChange={()=>dispatch({type:"PRICE", payload:{price:"down"}})} type="radio" name="price" id="priceUnder" checked={state.price === "down"}/>
                 <label className="cursor-pointer sm:px-1" htmlFor="priceUnder" >Under Rs.10,000</label>
               </div>
-              <div className="ml-5">
+              <div className="ml-2">
                 <input onChange={()=>dispatch({type:"PRICE", payload:{price:"up"}})} type="radio" name="price" id="priceAbove" checked={state.price === "up"}/>
                 <label className="cursor-pointer sm:px-1" htmlFor="priceAbove">Above Rs.10,000</label>
               </div>
@@ -30,8 +54,12 @@ export const Filter = ({category}) => {
           </div>
 
           <div className={`mt-6 sm:pb-3 border-b border-gray-400 ${category === 'all'? '':'hidden'}`} >            
-            <h1 className="my-2">Gender</h1>
-            <div className="price">
+            <div onClick={handleGenderOpen} className="my-2 flex justify-between items-center cursor-pointer">
+              <h1>GENDER</h1>
+                {gender && <i className="bi bi-chevron-up"></i>}
+                {!gender && <i className="bi bi-chevron-down"></i>}
+              </div>
+            <div className={gender?'' : "hidden"}>
               <div className="ml-5">
                 <input type="radio" onChange={()=>dispatch({type:"GENDER", payload:{gender:"Men"}})} checked = {state.gender === "Men"? true: false} name="gender" id="men"/>
                 <label htmlFor="men"> Men</label>
@@ -48,8 +76,12 @@ export const Filter = ({category}) => {
           </div>
 
           <div className="mt-6 sm:pb-3 border-b border-gray-400">
-            <h1 className="my-2">COLOR</h1>
-            <div className="flex flex-wrap">
+            <div onClick={handleColorOPen} className="my-2 flex justify-between items-center cursor-pointer">
+              <h1>COLOR</h1>
+              {color && <i className="bi bi-chevron-up"></i>}
+              {!color && <i className="bi bi-chevron-down"></i>}
+            </div>
+            <div className={`${color?'' : "hidden"} flex flex-wrap`}>
               <p className="sm:m-2">
                 <input type="radio" className="hidden overflow-hidden peer" name="color" id="all" />
                 <label htmlFor="all" onClick={()=>dispatch({type:"COLOR", payload:{color:"all"}})} className="sm:p-1 sm:px-3 border cursor-pointer rounded text-center peer-checked:border-black">all</label>
@@ -93,15 +125,23 @@ export const Filter = ({category}) => {
             </div>
           </div>
 
-          <div className="mt-6">
-            <input onChange={()=>dispatch({type:"SALE", payload:{sale: !state.sale}})} checked= {state.sale || false} type="checkbox" id="sales" name="sales"/>
-            <label htmlFor="sales"> On Sale</label>
+          <div className="mt-6 sm:pb-3 border-gray-400">
+            <div onClick={handleSalesOpen} className="my-2 flex justify-between items-center cursor-pointer">
+              <h1>SALEs</h1>
+              {sales && <i className="bi bi-chevron-up"></i>}
+              {!sales && <i className="bi bi-chevron-down"></i>}
+            </div>
+            <div className={`${sales?'' : "hidden"} ml-2`}>
+              <input onChange={()=>dispatch({type:"SALE", payload:{sale: !state.sale}})} checked= {state.sale || false} type="checkbox" id="sales" name="sales"/>
+              <label htmlFor="sales"> On Sale</label>
+            </div>
           </div>
-          <button className="mt-8 bg-gray-500 text-white p-1 rounded" onClick={()=>dispatch({type:"CLEAR"})}>Clear Filter</button>
+          <div className="flex justify-between">
+            <button onClick={handleClose} className="md:hidden mt-8 bg-blue-500 text-white p-1 rounded w-1/3">Filter</button>
+            <button className="my-3 bg-gray-500 text-white p-1 rounded max-sm:w-1/3" onClick={()=>dispatch({type:"CLEAR"})}>Clear Filter</button>
+          </div>
         </div>
       </div>
-      <button onClick={handleClick} className="absolute top-20 -right-5 bg-gray-500 h-12 ">{open?<i className="bi bi-chevron-left text-white"></i>: <i className="bi bi-chevron-right text-white"></i>}</button>
-      {!open && <h1 className="absolute top-36 h-auto [writing-mode:vertical-rl]">Show Filter</h1>}
     </div>
 
   ) 

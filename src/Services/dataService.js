@@ -2,7 +2,7 @@ export async function getOrders(){
     const token = JSON.parse(sessionStorage.getItem('token'));
     const id = JSON.parse(sessionStorage.getItem('nkid'))
 
-    const res = await fetch(`https://nike-clone-server.onrender.com/660/order?userInfo.userId=${id}`, {
+    const res = await fetch(`https://nike-clone-server.onrender.com/order?userInfo.userId=${id}`, {
         method:"GET",
         headers: {"Content-Type": "application/json", Authorization: `Bearer ${token}`},
     })

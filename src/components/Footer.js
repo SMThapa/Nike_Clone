@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom'
 import logo from '../util/NIKE.png'
 
 export const Footer = () => {
@@ -30,13 +31,13 @@ export const Footer = () => {
                 <div className="footerItems flex">
                   <ul className="flex flex-wrap flex-col mb-3 text-sm font-medium sm:mb-0 sm:pr-20">
                       <li className="m-2 md:m-3">
-                          <a href=" " className="ff font-bold mr-4 text-white">BECOME A MEMBER</a>
+                          <a href=' ' className="ff font-bold mr-4 text-white">BECOME A MEMBER</a>
                       </li>
                       <li className="m-2 md:m-3">
-                          <a href=" " className="ff font-bold mr-4 text-white">Send us Feedback</a>
+                          <a href=' ' className="ff font-bold mr-4 text-white">Send us Feedback</a>
                       </li>
                       <li className="m-2 md:m-3">
-                          <a href=" " className="ff font-bold mr-4 text-white">STUDENT DISCOUNT</a>
+                          <a href=' ' className="ff font-bold mr-4 text-white">STUDENT DISCOUNT</a>
                       </li>
                   </ul>
 
@@ -45,16 +46,16 @@ export const Footer = () => {
                           <span to=" " className="ff font-bold mr-4 text-white">GET HELP</span>
                       </li>
                       <li className="ml-2 md:ml-3 md:mb-3">
-                          <a href=" " className="text-xs font-normal hover:text-white">Order Status</a>
+                          <NavLink to="/dashboard" className="text-xs font-normal hover:text-white">Order Status</NavLink>
                       </li>
                       <li className="ml-2 md:ml-3 md:mb-3">
-                          <a href=" " className="text-xs font-normal hover:text-white">Delivery</a>
+                          <a href=' ' className="text-xs font-normal hover:text-white">Delivery</a>
                       </li>
                       <li className="ml-2 md:ml-3 md:mb-3">
-                          <a href=" " className="text-xs font-normal hover:text-white">Return</a>
+                          <a href=' ' className="text-xs font-normal hover:text-white">Return</a>
                       </li>
                       <li className="ml-2 md:ml-3 md:mb-3">
-                          <a href=" " className="text-xs font-normal hover:text-white">Payment Options</a>
+                          <a href=' ' className="text-xs font-normal hover:text-white">Payment Options</a>
                       </li>
                   </ul>
                   
@@ -63,16 +64,16 @@ export const Footer = () => {
                           <span to=" " className="ff font-bold mr-4 text-white">ABOUT NIKE</span>
                       </li>
                       <li className="ml-2 md:ml-3 md:mb-3">
-                          <a href=" " className="text-xs font-normal hover:text-white">News</a>
+                          <a href=' ' className="text-xs font-normal hover:text-white">News</a>
                       </li>
                       <li className="ml-2 md:ml-3 md:mb-3">
-                          <a href=" " className="text-xs font-normal hover:text-white">Careers</a>
+                          <a href=' ' className="text-xs font-normal hover:text-white">Careers</a>
                       </li>
                       <li className="ml-2 md:ml-3 md:mb-3">
-                          <a href=" " className="text-xs font-normal hover:text-white">Inventors</a>
+                          <a href=' ' className="text-xs font-normal hover:text-white">Inventors</a>
                       </li>
                       <li className="ml-2 md:ml-3 md:mb-3">
-                          <a href=" " className="text-xs font-normal hover:text-white">Sustainability</a>
+                          <a href=' ' className="text-xs font-normal hover:text-white">Sustainability</a>
                       </li>
                   </ul>
                 </div>

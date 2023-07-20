@@ -1,4 +1,5 @@
 export async function authLogin(userDetails){
+  // const res = await fetch(`https://nike-clone-server.onrender.com/login`, {
   const res = await fetch(`https://nike-clone-server.onrender.com/login`, {
     method: "POST",
     headers: {"content-Type": "application/json"},

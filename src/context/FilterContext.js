@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer } from "react"
+import { createContext, useContext, useReducer, useState } from "react"
 import { FilterReducers } from "../reducers/index";
 
 const initialState = {
@@ -6,7 +6,7 @@ const initialState = {
     price: null,
     gender: null,
     color: "all",
-    sale: false
+    sale: false,
 }
 
 const FilterContext = createContext(initialState);
@@ -58,11 +58,15 @@ export const FilterProvider = ({children}) =>{
 
     const filteredProducts = findGender(filterColor(sortPrice(inSale(state.productList))));
 
+    const [open, setOpen] = useState(false);
+
     const value = {
         state,
         dispatch,
         productList: filteredProducts,
-        initialProductList
+        initialProductList,
+        open,
+        setOpen
     }
 
     return (
