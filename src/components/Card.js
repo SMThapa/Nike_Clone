@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 export const Card = ({ data}) => {
 
   return (
-    <div className="w-8/12 max-sm:w-44 sm:w-64 lg:w-80 h-auto sm:m-5 m-1 max-sm:py-2 bg-white flex-shrink-0 relative">
+    <div className="w-8/12 max-sm:w-40 sm:w-64 lg:w-80 h-auto sm:m-5 m-1 max-sm:py-2 bg-white flex-shrink-0 relative">
       <Link to={`/product/${data.id}`}>
         {data.sale && <span className={`text-orange-500 text-sm absolute p-3`}>sale: {data.sale} off</span>}
         <img className="sm:mx-auto w-full h-auto aspect-square object-center object-cover" src={data.thumbnail[0]}alt="" />

@@ -81,7 +81,7 @@ export const Products = ({category}) => {
           </div>
         </div>
         {currentPosts.length ===0 && <h1 className='sm:ml-20 ml-5 sm:mt-12 max-sm:mb-3 sm:text-xl'>No item to be shown.</h1>}
-        <div className='flex flex-wrap justify-center'>
+        <div className='flex flex-wrap justify-center justify-around'>
           {
               currentPosts.map(itm => (
                 <Card key={itm.id} data={itm}/>
@@ -92,12 +92,12 @@ export const Products = ({category}) => {
           {
             currentPage !== 1 ? 
             <button className='px-5 py-3 sm:text-xl' onClick={previous}>Previous</button> : 
-            <button className='text-gray-400 cursor-none px-5 py-3 sm:text-xl'>Previous</button>
+            <button className='text-gray-300 cursor-default px-5 py-3 sm:text-xl'>Previous</button>
           }
           {
             currentPage !== totalPages ?
             <button className='px-5 py-3 sm:text-xl' onClick={next}>Next</button> :
-            <button className='text-gray-400 cursor-none px-5 py-3 sm:text-xl'>Next</button>
+            <button className='text-gray-300 cursor-default px-5 py-3 sm:text-xl'>Next</button>
           }
         </div>
       </div>
