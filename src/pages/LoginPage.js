@@ -33,7 +33,7 @@ export const LoginPage = () => {
       toast.error("Incorrect email or password.")
     }
     email.current.value = ' '
-    password.current.value = null
+    password.current.value = " "
   }
 
   return (

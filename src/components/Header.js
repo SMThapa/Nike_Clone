@@ -150,12 +150,14 @@ export const Header = () => {
                     <NavLink to='/wishlist' onClick={handleClose} className="block py-2 pl-3 pr-4 text-black md:p-0">Wishlist</NavLink>
                     <p onClick={handleMyOrder} className="py-2 pl-3 pr-4 cursor-pointer hover:underline">My Orders</p>
                     <p onClick={handleLogout} className="py-2 pl-3 pr-4 pb-4 cursor-pointer hover:underline">Logout</p>
+                    <NavLink to='/help' onClick={()=>closeMenu(true)} className='py-2 pl-3 pb-4'>Help</NavLink>
                     <div className="flex items-center py-2 pr-4 border-t border-gray-300">
                       <i className="bi bi-person-fill pl-2 text-xs"></i>
                       <p className='px-1 py-4' >{email}</p>
                     </div>
                   </div> :
                   <div className="flex flex-col ">
+                    <NavLink to='/help' onClick={()=>closeMenu(true)} className='py-2'>Help</NavLink>
                     <NavLink to='/login' onClick={()=>closeMenu(true)} className='py-2'>Login in</NavLink>
                     <NavLink to='/register' onClick={()=>closeMenu(true)} className='py-2'>Join Us</NavLink>
                   </div>

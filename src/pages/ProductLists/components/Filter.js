@@ -41,7 +41,7 @@ export const Filter = ({category}) => {
               {price && <i className="bi bi-chevron-up"></i>}
               {!price && <i className="bi bi-chevron-down"></i>}
             </div>
-            <div className={price?'' : "hidden"}>
+            <div className={price?'pb-2' : "hidden"}>
               <div className="ml-2">
                 <input onChange={()=>dispatch({type:"PRICE", payload:{price:"down"}})} type="radio" name="price" id="priceUnder" checked={state.price === "down"}/>
                 <label className="cursor-pointer sm:px-1" htmlFor="priceUnder" >Under Rs.10,000</label>
@@ -59,7 +59,7 @@ export const Filter = ({category}) => {
                 {gender && <i className="bi bi-chevron-up"></i>}
                 {!gender && <i className="bi bi-chevron-down"></i>}
               </div>
-            <div className={gender?'' : "hidden"}>
+            <div className={gender?'pb-2' : "hidden"}>
               <div className="ml-5">
                 <input type="radio" onChange={()=>dispatch({type:"GENDER", payload:{gender:"Men"}})} checked = {state.gender === "Men"? true: false} name="gender" id="men"/>
                 <label htmlFor="men"> Men</label>
@@ -81,46 +81,46 @@ export const Filter = ({category}) => {
               {color && <i className="bi bi-chevron-up"></i>}
               {!color && <i className="bi bi-chevron-down"></i>}
             </div>
-            <div className={`${color?'' : "hidden"} flex flex-wrap`}>
-              <p className="sm:m-2">
+            <div className={`${color?'pb-2' : "hidden"} flex flex-wrap`}>
+              <p className="m-2">
                 <input type="radio" className="hidden overflow-hidden peer" name="color" id="all" />
-                <label htmlFor="all" onClick={()=>dispatch({type:"COLOR", payload:{color:"all"}})} className="sm:p-1 sm:px-3 border cursor-pointer rounded text-center peer-checked:border-black">all</label>
+                <label htmlFor="all" onClick={()=>dispatch({type:"COLOR", payload:{color:"all"}})} className="p-1 px-3 border cursor-pointer rounded text-center peer-checked:border-black">all</label>
               </p>
-              <p className="sm:m-2 ">
+              <p className="m-2 ">
                 <input type="radio" className="hidden overflow-hidden peer" name="color" id="White" />
-                <label onClick={()=>dispatch({type:"COLOR", payload:{color:"White"}})} className="sm:p-1 sm:px-3 h-20 w-20 border border cursor-pointer rounded text-center peer-checked:border-black bg-white" htmlFor="White">white</label>
+                <label onClick={()=>dispatch({type:"COLOR", payload:{color:"White"}})} className="p-1 px-3 h-20 w-20 border border cursor-pointer rounded text-center peer-checked:border-black bg-white" htmlFor="White">white</label>
               </p>
-              <p className="sm:m-2">
+              <p className="m-2">
                 <input type="radio" className="hidden overflow-hidden peer" name="color" id="Black" />
-                <label onClick={()=>dispatch({type:"COLOR", payload:{color:"Black"}})} className="sm:p-1 sm:px-3 border-2 cursor-pointer rounded text-center peer-checked:border-white bg-black text-white" htmlFor="Black">black</label>
+                <label onClick={()=>dispatch({type:"COLOR", payload:{color:"Black"}})} className="p-1 px-3 border-2 cursor-pointer rounded text-center peer-checked:border-white bg-black text-white" htmlFor="Black">black</label>
               </p>
-              <p className="sm:m-2">
+              <p className="m-2">
                 <input type="radio" className="hidden overflow-hidden peer" name="color" id="Gray" />
-                <label onClick={()=>dispatch({type:"COLOR", payload:{color:"Gray"}})} className="sm:p-1 sm:px-3 border-2 cursor-pointer rounded text-center peer-checked:border-white bg-gray-500 text-white" htmlFor="Gray">gray</label>
+                <label onClick={()=>dispatch({type:"COLOR", payload:{color:"Gray"}})} className="p-1 px-3 border-2 cursor-pointer rounded text-center peer-checked:border-white bg-gray-500 text-white" htmlFor="Gray">gray</label>
               </p>
-              <p className="sm:m-2">
+              <p className="m-2">
                 <input type="radio" className="hidden overflow-hidden peer" name="color" id="Blue" />
-                <label onClick={()=>dispatch({type:"COLOR", payload:{color:"Blue"}})} className="sm:p-1 sm:px-3 border cursor-pointer rounded text-center peer-checked:border-black bg-blue-500 text-white" htmlFor="Blue">blue</label>
+                <label onClick={()=>dispatch({type:"COLOR", payload:{color:"Blue"}})} className="p-1 px-3 border cursor-pointer rounded text-center peer-checked:border-black bg-blue-500 text-white" htmlFor="Blue">blue</label>
               </p>
-              <p className="sm:m-2">
+              <p className="m-2">
                 <input type="radio" className="hidden overflow-hidden peer" name="color" id="Cream" />
-                <label onClick={()=>dispatch({type:"COLOR", payload:{color:"Cream"}})} className="sm:p-1 sm:px-3 border cursor-pointer rounded text-center peer-checked:border-black bg-yellow-200 text-black" htmlFor="Cream">cream</label>
+                <label onClick={()=>dispatch({type:"COLOR", payload:{color:"Cream"}})} className="p-1 px-3 border cursor-pointer rounded text-center peer-checked:border-black bg-yellow-200 text-black" htmlFor="Cream">cream</label>
               </p>
-              <p className="sm:m-2">
+              <p className="m-2">
                 <input type="radio" className="hidden overflow-hidden peer" name="color" id="Red" />
-                <label onClick={()=>dispatch({type:"COLOR", payload:{color:"Red"}})} className="sm:p-1 sm:px-3 border cursor-pointer rounded text-center peer-checked:border-black bg-red-600 text-white" htmlFor="Red">red</label>
+                <label onClick={()=>dispatch({type:"COLOR", payload:{color:"Red"}})} className="p-1 px-3 border cursor-pointer rounded text-center peer-checked:border-black bg-red-600 text-white" htmlFor="Red">red</label>
               </p>
-              <p className="sm:m-2">
+              <p className="m-2">
                 <input type="radio" className="hidden overflow-hidden peer" name="color" id="Orange" />
-                <label onClick={()=>dispatch({type:"COLOR", payload:{color:"Orange"}})} className="sm:p-1 sm:px-3 border cursor-pointer rounded text-center peer-checked:border-black bg-orange-500 text-white" htmlFor="Orange">orange</label>
+                <label onClick={()=>dispatch({type:"COLOR", payload:{color:"Orange"}})} className="p-1 px-3 border cursor-pointer rounded text-center peer-checked:border-black bg-orange-500 text-white" htmlFor="Orange">orange</label>
               </p>
-              <p className="sm:m-2">
+              <p className="m-2">
                 <input type="radio" className="hidden overflow-hidden peer" name="color" id="Brown" />
-                <label onClick={()=>dispatch({type:"COLOR", payload:{color:"Brown"}})} className="sm:p-1 sm:px-3 border cursor-pointer rounded text-center peer-checked:border-black bg-orange-900 text-white" htmlFor="Brown">brown</label>
+                <label onClick={()=>dispatch({type:"COLOR", payload:{color:"Brown"}})} className="p-1 px-3 border cursor-pointer rounded text-center peer-checked:border-black bg-orange-900 text-white" htmlFor="Brown">brown</label>
               </p>
-              <p className="sm:m-2">
+              <p className="m-2">
                 <input type="radio" className="hidden overflow-hidden peer" name="color" id="Green" />
-                <label onClick={()=>dispatch({type:"COLOR", payload:{color:"Green"}})} className="sm:p-1 sm:px-3 border cursor-pointer rounded text-center peer-checked:border-black bg-green-500 text-white" htmlFor="Green">green</label>
+                <label onClick={()=>dispatch({type:"COLOR", payload:{color:"Green"}})} className="p-1 px-3 border cursor-pointer rounded text-center peer-checked:border-black bg-green-500 text-white" htmlFor="Green">green</label>
               </p>
             </div>
           </div>
@@ -137,8 +137,8 @@ export const Filter = ({category}) => {
             </div>
           </div>
           <div className="flex justify-between">
-            <button onClick={handleClose} className="md:hidden mt-8 bg-blue-500 text-white p-1 rounded w-1/3">Filter</button>
-            <button className="my-3 bg-gray-500 text-white p-1 rounded max-sm:w-1/3" onClick={()=>dispatch({type:"CLEAR"})}>Clear Filter</button>
+            <button onClick={handleClose} className="md:hidden my-3 mt-8 bg-blue-500 text-white p-1 rounded w-1/3">Filter</button>
+            <button className="my-3 max-sm:mt-8 bg-gray-500 text-white p-1 rounded max-sm:w-1/3" onClick={()=>dispatch({type:"CLEAR"})}>Clear Filter</button>
           </div>
         </div>
       </div>

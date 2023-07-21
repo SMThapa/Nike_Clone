@@ -43,7 +43,7 @@ export const Footer = () => {
 
                   <ul className="flex flex-wrap flex-col mb-3 text-sm font-medium text-white sm:mb-0 sm:pr-20">
                       <li className="m-2 md:m-3">
-                          <span to=" " className="ff font-bold mr-4 text-white">GET HELP</span>
+                          <span className="ff font-bold mr-4 text-white">GET HELP</span>
                       </li>
                       <li className="ml-2 md:ml-3 md:mb-3">
                           <NavLink to="/dashboard" className="text-xs font-normal hover:text-white">Order Status</NavLink>
