@@ -1,7 +1,7 @@
 
 # ReactJS Nike Ecommerce Clone
 
-This project is a ReactJS-based clone of the Nike ecommerce website. It aims to replicate the core functionality and design of the original site, providing users with a familiar shopping experience.
+This project is a ReactJS-based clone of the Nike ecommerce website. It aims to replicate the core functionality and design of the original site, providing users with a familiar experience.
 
 DEMO : https://nike-ecommerce-clone.netlify.app/
 
