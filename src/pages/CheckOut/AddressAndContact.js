@@ -2,39 +2,42 @@ import { useNavigate } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
 import { useEffect, useState } from "react";
 import { findUser } from "../../Services/authService";
+import { useTitle } from "../../hooks/useTitle";
 
 
 export const AddressAndContact = () => {
 
-    //to fetch data for user address if available
-    const [user, setUser] = useState({})
-    const id = JSON.parse(sessionStorage.getItem('nkid'))
-    const token = JSON.parse(sessionStorage.getItem('token'))
-    useEffect(()=>{
-      async function fetchOrder(){
-        const data = await findUser(id, token)
-        data.length === 0 ? setUser({}) : setUser(data[0].userInfo)
-      } 
-      fetchOrder()
-    },[token, id])
+  useTitle("Add your information")
+
+  //to fetch data for user address if available
+  const [user, setUser] = useState({})
+  const id = JSON.parse(sessionStorage.getItem('nkid'))
+  const token = JSON.parse(sessionStorage.getItem('token'))
+  useEffect(()=>{
+    async function fetchOrder(){
+      const data = await findUser(id, token)
+      data.length === 0 ? setUser({}) : setUser(data[0].userInfo)
+    } 
+    fetchOrder()
+  },[token, id])
 
 
-    const {createUserInfo} = useCart()
-    const navigate = useNavigate()
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        navigate('/checkout')
+  const {createUserInfo} = useCart()
+  const navigate = useNavigate()
+  const handleSubmit = (event) => {
+      event.preventDefault();
+      navigate('/checkout')
 
-        const theObject = {
-            name: event.target.name.value,
-            address: event.target.address.value,
-            pincode: event.target.pincode.value,
-            locality: event.target.locality.value,
-            number: event.target.number.value,
-            email: event.target.email.value
-        }
-        createUserInfo(theObject)
-    }        
+      const theObject = {
+          name: event.target.name.value,
+          address: event.target.address.value,
+          pincode: event.target.pincode.value,
+          locality: event.target.locality.value,
+          number: event.target.number.value,
+          email: event.target.email.value
+      }
+      createUserInfo(theObject)
+  }        
 
   return (
     <div className="sm:my-20 py-20 sm:px-40 px-5 xl:px-96 flex-col items-center min-h-screen">

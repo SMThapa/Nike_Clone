@@ -3,10 +3,11 @@ import logo from '../util/NIKE-LOGO.png'
 import { useRef } from "react"
 import {authLogin} from "../Services/authService"
 import {toast} from "react-toastify";
-
-
+import { useTitle } from "../hooks/useTitle";
 
 export const LoginPage = () => {
+
+  useTitle("Login - NIKE")
 
   const email = useRef()
   const password = useRef()
@@ -33,7 +34,7 @@ export const LoginPage = () => {
       toast.error("Incorrect email or password.")
     }
     email.current.value = ' '
-    password.current.value = " "
+    password.current.value = null
   }
 
   return (

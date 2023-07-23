@@ -1,6 +1,9 @@
+import { useTitle } from "../../hooks/useTitle"
 import { Billling, Summery } from "./components/index"
 
 export const CheckOuts = () => {
+
+  useTitle("Check Out")
 
   //to add date of delivary
   const milTime = Date.now()

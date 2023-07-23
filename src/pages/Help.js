@@ -1,7 +1,10 @@
 import { useState } from "react"
 import { NavLink } from "react-router-dom";
+import { useTitle } from "../hooks/useTitle";
 
 export const Help = () => {
+
+  useTitle('Help - NIKE')
 
   const [q1, setQ1] = useState(false);
   const [q2, setQ2] = useState(false);
@@ -101,7 +104,7 @@ export const Help = () => {
               {q5 && <i className="bi bi-chevron-up"></i>}
               {!q5 && <i className="bi bi-chevron-down"></i>}
             </div>
-            <p className={`${q5?'':'hidden'} sm:pl-2 py-4 text-gray-600 `}>
+            <div className={`${q5?'':'hidden'} sm:pl-2 py-4 text-gray-600 `}>
               <p>
                 When it comes to performance, fit matters. We'll help you find the right shoes and gear in the right size so you can 
                 perform at your best.
@@ -112,7 +115,7 @@ export const Help = () => {
                 tems and accessories. You can also find links to the appropriate size chart on all of our product pages.
               </p>
               
-            </p>
+            </div>
           </div>
 
           <div className="border-b border-gray-300 py-4">
