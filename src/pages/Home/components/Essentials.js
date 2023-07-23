@@ -10,7 +10,7 @@ export const Essentials = () => {
                 <Link to='/products/men' className="h-full">
                   <img src="/assets/pictures/posters/men.webp" className="h-full w-auto object-cover sm:pr-3" alt="" />
                 </Link>
-                <button className='absolute px-5 py-1 m-5 h-8 rounded-2xl bg-black bg-opacity-60 hover:bg-opacity-80 text-sm text-white flex items-center'>Men's</button>
+                <Link to="products/men" className='absolute px-5 py-1 m-5 h-8 rounded-2xl bg-black bg-opacity-60 hover:bg-opacity-80 text-sm text-white flex items-center'>Men's</Link>
               </div>
           </div>
           <div className='essentialDivHeight max-sm:p-1'>
@@ -18,7 +18,7 @@ export const Essentials = () => {
                 <Link to='/products/women' className="h-full">
                   <img src="/assets/pictures/posters/women.webp" className="h-full w-auto object-cover sm:px-2" alt="" />
                 </Link>
-                <button className='absolute px-5 py-1 sm:ml-8 ml-5 mb-5 h-8 rounded-2xl bg-black bg-opacity-60 hover:bg-opacity-80 text-sm text-white flex items-center'>Women's</button>
+                <Link to="/products/women" className='absolute px-5 py-1 sm:ml-8 ml-5 mb-5 h-8 rounded-2xl bg-black bg-opacity-60 hover:bg-opacity-80 text-sm text-white flex items-center'>Women's</Link>
               </div>
           </div>
           <div className='essentialDivHeight max-sm:p-1'>
@@ -26,7 +26,7 @@ export const Essentials = () => {
                 <Link to="/products/kids" className="h-full">
                   <img src="/assets/pictures/posters/kid.webp" className="h-full w-auto object-cover sm:pl-3" alt="" />
                 </Link>
-                <button className='absolute px-5 py-1 sm:ml-8 ml-5 mb-5 h-8 rounded-2xl bg-black bg-opacity-60 hover:bg-opacity-80 text-sm text-white flex items-center'>Kid's</button>
+                <Link to='/products/kids' className='absolute px-5 py-1 sm:ml-8 ml-5 mb-5 h-8 rounded-2xl bg-black bg-opacity-60 hover:bg-opacity-80 text-sm text-white flex items-center'>Kid's</Link>
               </div>
           </div>
         </div>
